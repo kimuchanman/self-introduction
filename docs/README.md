@@ -37,7 +37,7 @@
 
 - CakePHP / Ruby on Rails / Laravel / Vue.js(Nuxt.js)
 - PHPUnit / RSpec / Jest / Selenium を用いた E2E テスト
-- AWSはSAAを取れるくらいには知識もありますし、基本的なサービスはだいたい業務や個人で触っています
+- AWS は SAA を取れるくらいには知識もありますし、基本的なサービスはだいたい業務や個人で触っています
 
 ---
 
