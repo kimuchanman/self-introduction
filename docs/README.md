@@ -31,16 +31,17 @@
 
 ### 言語
 
-- PHP / TypeScript / Ruby / Go / Haskel
+- PHP / TypeScript / Ruby / Go / Haskell
 
 ### フレームワーク・その他
 
 - CakePHP / Ruby on Rails / Laravel / Vue.js(Nuxt.js)
 - PHPUnit / RSpec / Jest / Selenium を用いた E2E テスト
+- AWSはSAAを取れるくらいには知識もありますし、基本的なサービスはだいたい業務や個人で触っています
 
 ---
 
-## 職務経歴詳細
+## 職務経歴概略
 
 ### BASE株式会社（2020/08〜現在）
 
