@@ -1,8 +1,19 @@
-# { name } resume
+# kimukei's resume
 
+<!--
 ## Sample
 
 https://github.com/kawamataryo/resume
+
+-->
+
+## pages
+
+wip
+
+- GitHub Pages
+- PDF
+- File
 
 ## Features
 
