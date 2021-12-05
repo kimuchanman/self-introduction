@@ -47,8 +47,8 @@
 - インスタ広告 App の開発
 - 顧客管理システムの開発とリアーキテクト
     - こちらのブログを執筆しました
-    - https://devblog.thebase.in/entry/2021/12/02/110000
-    - CakePHP,MySQL(Aurora),OpenSearch(Elasticsearch)、非同期アーキテクチャ、イベント駆動、マイクロサービス化
+    - [BASEの顧客管理はどのようにして実現されたか](https://devblog.thebase.in/entry/2021/12/02/110000)
+    - CakePHP, MySQL(Aurora), OpenSearch(Elasticsearch), 非同期アーキテクチャ、イベント駆動、マイクロサービス化
 
 ### 株式会社LIFULL（2018/04〜2020/07）
 
@@ -65,9 +65,9 @@
 
 - Vuetify_meetup
     - 登壇しました
-    - https://speakerdeck.com/kimuchanman/fei-hurontoensiniakabao-su-tevuetifywoshi-utamenikiyatutisita6tufalsekoto
+    - [非フロントエンジニアが爆速でVuetifyを使うためにキャッチした6つのこと](https://speakerdeck.com/kimuchanman/fei-hurontoensiniakabao-su-tevuetifywoshi-utamenikiyatutisita6tufalsekoto)
 - aspida
     - early adaptor として導入記事書かせていただきました
-    - https://qiita.com/kimuchan/items/c60fbcb8e71baace0fc6
+    - [aspidaでフロントエンドからAPIを見える化する](https://qiita.com/kimuchan/items/c60fbcb8e71baace0fc6)
 - WordPress で運用していたサイトのリプレイス（Laravel & Nuxt & AWS 移行）
     - 副業先にて
