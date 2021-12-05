@@ -1,19 +1,13 @@
-# kimukei's resume
+# Pages
+
+[GitHub Pages](https://kimuchanman.github.io/self-introduction/)
+に generate 結果をまとめてあります。
+<br>ので、リンクを見てもらった方が私の自己紹介については見やすいと思います。
 
 <!--
-## Sample
-
-https://github.com/kawamataryo/resume
-
--->
-
-## pages
-
-wip
-
-- GitHub Pages
 - PDF
 - File
+-->
 
 ## Features
 
