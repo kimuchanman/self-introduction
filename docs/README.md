@@ -6,9 +6,9 @@
 |:---:|:---:|
 |氏名|木村 慶 (Kimura Kei)|
 |生年月日|1995/08/11|
+|GitHub|[GitHub](https://github.com/kimuchanman)|
 |Qiita|[Qiita](https://qiita.com/kimuchan)|
 |SpeakerDeck|[SpeakerDeck](https://speakerdeck.com/kimuchanman)|
-|転ドラ|[転ドラ](https://job-draft.jp/users/40274)|
 
 ---
 
