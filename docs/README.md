@@ -40,7 +40,7 @@
 ### フレームワーク・その他
 
 - CakePHP / Ruby on Rails / Laravel / Vue.js(Nuxt.js)
-- PHPUnit / RSpec / Jest / Selenium を用いた E2E テスト
+- PHPUnit / RSpec / Jest / Selenium WebDriver や Cypress を用いた E2E テスト
 - AWS は SAA(Solution Architect Associate) を取得しています。基本的なサービスはだいたい業務や個人で触っています。
 
 ---
@@ -57,6 +57,9 @@ Facebook Marketing APIを使った外部連携機能で、APIドキュメント�
 #### 顧客管理システムの開発とリアーキテクト
 - こちらのブログを執筆しました
 - [BASEの顧客管理はどのようにして実現されたか](https://devblog.thebase.in/entry/2021/12/02/110000)
+- また、こちらのYouTubeにてインタビューしていただきました
+    - https://youtu.be/JE9bncvlc8c <iframe width="560" height="315" src="https://www.youtube.com/embed/JE9bncvlc8c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    - https://youtu.be/u-BD28cGH98 <iframe width="560" height="315" src="https://www.youtube.com/embed/u-BD28cGH98" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 - CakePHP, MySQL(Aurora), SNS, SQS, OpenSearch(Elasticsearch)
 - 非同期アーキテクチャ、イベント駆動設計、マイクロサービス化
 
