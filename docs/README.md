@@ -52,15 +52,18 @@
 #### インスタ広告 App の開発
 
 BASE にて[こちら](https://admin.thebase.in/apps/110)の App の開発を行いました。
-Facebook Marketing API を使った外部連携機能で、API ドキュメントがたまに正しいことが書かれていなかったり、連携先の環境は本番としか繋げられないが、ショップアカウントの開設条件が厳しいかったり、外部連携ならではの、開発以外のところでの苦労が多かったように思います。
+こちらは、Facebook Marketing API を使った外部連携機能です。
+API ドキュメントにはたまに正しいことが書かれていなかったり、連携先の環境は本番としか繋げられないがショップアカウントの開設条件が厳しいかったり、外部連携ならではの開発以外のところでの苦労が多かったです。
 
 #### 顧客管理システムの開発とリアーキテクト
 - こちらのブログを執筆しました
 - [BASEの顧客管理はどのようにして実現されたか](https://devblog.thebase.in/entry/2021/12/02/110000)
 - また、こちらの YouTube にてインタビューしていただきました
-    - https://youtu.be/JE9bncvlc8c <iframe width="560" height="315" src="https://www.youtube.com/embed/JE9bncvlc8c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    - https://youtu.be/u-BD28cGH98 <iframe width="560" height="315" src="https://www.youtube.com/embed/u-BD28cGH98" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-- CakePHP, MySQL(Aurora), SNS, SQS, OpenSearch(Elasticsearch)
+    - [https://youtu.be/JE9bncvlc8c](https://youtu.be/JE9bncvlc8c)
+    - <iframe width="560" height="315" src="https://www.youtube.com/embed/JE9bncvlc8c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    - [https://youtu.be/u-BD28cGH98](https://youtu.be/u-BD28cGH98)
+    - <iframe width="560" height="315" src="https://www.youtube.com/embed/u-BD28cGH98" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+- CakePHP, 各種 AWS サービス（SNS と SQS を用いた非同期化など）
 - 非同期アーキテクチャ、イベント駆動設計、マイクロサービス化
 
 ### 株式会社LIFULL（2018/04〜2020/07）
