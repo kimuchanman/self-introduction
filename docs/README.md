@@ -41,7 +41,7 @@
 
 - CakePHP / Ruby on Rails / Laravel / Vue.js(Nuxt.js)
 - PHPUnit / RSpec / Jest / Selenium WebDriver や Cypress を用いた E2E テスト
-- AWS は SAA(Solution Architect Associate) を取得しています。基本的なサービスはだいたい業務や個人で触っています。
+- AWS は Solution Architect Associate(SAA) を取得しています。基本的なサービスはだいたい業務や個人で触っています
 
 ---
 
@@ -51,13 +51,13 @@
 
 #### インスタ広告 App の開発
 
-BASEにて[こちら](https://admin.thebase.in/apps/110)のAppの開発を行いました。
-Facebook Marketing APIを使った外部連携機能で、APIドキュメントがたまに正しいことが書かれていなかったり、連携先の環境は本番としか繋げられないが、ショップアカウントの開設条件が厳しいかったり、外部連携ならではの、開発以外のところでの苦労が多かったように思います。
+BASE にて[こちら](https://admin.thebase.in/apps/110)の App の開発を行いました。
+Facebook Marketing API を使った外部連携機能で、API ドキュメントがたまに正しいことが書かれていなかったり、連携先の環境は本番としか繋げられないが、ショップアカウントの開設条件が厳しいかったり、外部連携ならではの、開発以外のところでの苦労が多かったように思います。
 
 #### 顧客管理システムの開発とリアーキテクト
 - こちらのブログを執筆しました
 - [BASEの顧客管理はどのようにして実現されたか](https://devblog.thebase.in/entry/2021/12/02/110000)
-- また、こちらのYouTubeにてインタビューしていただきました
+- また、こちらの YouTube にてインタビューしていただきました
     - https://youtu.be/JE9bncvlc8c <iframe width="560" height="315" src="https://www.youtube.com/embed/JE9bncvlc8c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     - https://youtu.be/u-BD28cGH98 <iframe width="560" height="315" src="https://www.youtube.com/embed/u-BD28cGH98" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 - CakePHP, MySQL(Aurora), SNS, SQS, OpenSearch(Elasticsearch)
@@ -69,7 +69,7 @@ Facebook Marketing APIを使った外部連携機能で、APIドキュメント�
 - Ruby on Rails 5.1
 - Docker
 - AWS(ECS,CodePipeline,Route 53, ALB)
-- Nginx
+- nginx
 - Webpack
 - Vue.js
 - vue-property-decorator
@@ -101,9 +101,9 @@ Facebook Marketing APIを使った外部連携機能で、APIドキュメント�
 ```
 
 #### 地域情報に関連する記事更新の自動化
-- Mecab
+- MeCab
 - Ruby 2.4
-- AWS(EC2, CloudWatch, ElastiCache for Redis, VPCピアリング, AssumeRole)
+- AWS(EC2, CloudWatch, ElastiCache for Redis, VPC ピアリング、 AssumeRole)
 
 ```
 自分が携わっているサイトの都道府県のLP（ランディングページ）で、その都道府県に関連した記事を表示するというものをやりました。
@@ -181,7 +181,7 @@ https://qiita.com/kimuchan/items/c60fbcb8e71baace0fc6
 
 [こちら](https://clmlp.liris.co.jp/)のサービスの主にフロントエンド部分（Vue.js）の開発をしていました。</br>
 アトミックデザインに沿ったコンポーネント設計指針の元開発していました。
-CypressでVue,jsのE2Eテストも書いていました。
+Cypress で Vue,js の E2E テストも書いていました。
 
 ## 業務外活動
 
@@ -196,4 +196,4 @@ CypressでVue,jsのE2Eテストも書いていました。
 
 ## パーソナル
 
-サウナが好きで、週7で行ってます！
+サウナが好きで、週 7 で行ってます！
