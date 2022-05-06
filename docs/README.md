@@ -7,6 +7,7 @@
 |氏名|木村 慶 (Kimura Kei)|
 |生年月日|1995/08/11|
 |GitHub|[GitHub](https://github.com/kimuchanman)|
+|Zenn|[Zenn](https://zenn.dev/kimuchan)|
 |Qiita|[Qiita](https://qiita.com/kimuchan)|
 |SpeakerDeck|[SpeakerDeck](https://speakerdeck.com/kimuchanman)|
 
