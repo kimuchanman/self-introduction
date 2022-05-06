@@ -63,8 +63,12 @@ API ドキュメントにはたまに正しいことが書かれていなかっ�
     - <iframe width="560" height="315" src="https://www.youtube.com/embed/JE9bncvlc8c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     - [https://youtu.be/u-BD28cGH98](https://youtu.be/u-BD28cGH98)
     - <iframe width="560" height="315" src="https://www.youtube.com/embed/u-BD28cGH98" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-- CakePHP, 各種 AWS サービス（SNS と SQS を用いた非同期化など）
+- CakePHP
+- Amazon SNS と Amazon SQS を用いた非同期化アーキテクチャの設計と実装
+- Amazon OpenSearch Service を用いて顧客検索システムのパフォーマンスを改善
 - 非同期アーキテクチャ、イベント駆動設計、マイクロサービス化
+
+現在も CRM 機能を統括的に見つつ開発もしています。
 
 ### 株式会社LIFULL（2018/04〜2020/07）
 
