@@ -42,7 +42,7 @@
 
 - CakePHP / Ruby on Rails / Laravel / Vue.js(Nuxt.js)
 - PHPUnit / RSpec / Jest / Selenium WebDriver や Cypress を用いた E2E テスト
-- AWS は Solution Architect Associate(SAA) を取得しています。基本的なサービスはだいたい業務や個人で触っています。レアなスキルですと、AWS OpenSearch Service のVPC内とパブリックドメイン両方のインフラ環境の構築とドキュメント/インデックス構築の経験があります。
+- AWS は Solution Architect Associate(SAA) を取得しています。基本的なサービスはだいたい業務や個人で触っています。レアなスキルですと、 AWS OpenSearch Service のVPC内とパブリックドメイン両方のインフラ環境の構築とドキュメント/インデックス構築の経験があります
 
 ---
 
