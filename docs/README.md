@@ -57,8 +57,8 @@ BASE にて[こちら](https://admin.thebase.in/apps/110)の App の開発を行
 API ドキュメントにはたまに正しいことが書かれていなかったり、連携先の環境は本番としか繋げられないがショップアカウントの開設条件が厳しいかったり、外部連携ならではの開発以外のところでの苦労が多かったです。
 
 #### 顧客管理システムの開発とリアーキテクト
-- こちらのブログを執筆しました
-- [BASEの顧客管理はどのようにして実現されたか](https://devblog.thebase.in/entry/2021/12/02/110000)
+- 詳しくは、執筆しましたこちらのブログをご覧いただければと思います
+    - [BASEの顧客管理はどのようにして実現されたか](https://devblog.thebase.in/entry/2021/12/02/110000)
 - また、こちらの YouTube にてインタビューしていただきました
     - [https://youtu.be/JE9bncvlc8c](https://youtu.be/JE9bncvlc8c)
     - <iframe width="560" height="315" src="https://www.youtube.com/embed/JE9bncvlc8c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -69,7 +69,7 @@ API ドキュメントにはたまに正しいことが書かれていなかっ�
 - Amazon OpenSearch Service を用いて顧客検索システムのパフォーマンスを改善
 - 非同期アーキテクチャ、イベント駆動設計、マイクロサービス化
 
-現在も CRM 機能を統括的に見つつ開発もしています。
+現在も CRM 機能を統括的に見つつメルマガなど様々な BASE の Apps 開発もしています。
 
 ### 株式会社LIFULL（2018/04〜2020/07）
 
@@ -83,7 +83,6 @@ API ドキュメントにはたまに正しいことが書かれていなかっ�
 - vue-property-decorator
 - TypeScript
 
-```
 自社のサイトで
 
 - ドメイン変更
@@ -106,14 +105,12 @@ API ドキュメントにはたまに正しいことが書かれていなかっ�
 また、サイトリニューアルに伴って、影響範囲が全てのページにあたり、TDK、OGP、DataLayer、Json-LDに挙げられるmetaタグ内のコンテンツも全て新規のものになりました。それらのテストのために、以前から採用していたE2Eテストも大幅に変更を加え、保守しました。その結果、サイトリニューアル時のテストはほとんど自動テストに任せれば良くなりデグレの早期発見や不安も取り除かれ、チームの開発効率が向上しました。
 
 以上に挙げたほとんど全てに私も携わり、中でもE2Eテストの保守は私1人で行いました。
-```
 
 #### 地域情報に関連する記事更新の自動化
 - MeCab
 - Ruby 2.4
 - AWS(EC2, CloudWatch, ElastiCache for Redis, VPC ピアリング、 AssumeRole)
 
-```
 自分が携わっているサイトの都道府県のLP（ランディングページ）で、その都道府県に関連した記事を表示するというものをやりました。
 
 以前は手作業かつ、1都3県のみ対応のサイトだったため記事は全て同じものを表示させていました。
@@ -133,14 +130,12 @@ API ドキュメントにはたまに正しいことが書かれていなかっ�
 また、バッチの自動化のためCloudWatch Events、サービスオーナーへの通知にAWS SNSを活用しました。
 
 このプロジェクトを完遂するまではAWSにあまり詳しくなかったのですが、本プロジェクトを通してかなりAWSのノウハウがたまりましたのでAWS Solution Associate認定試験を後日受験し、見事合格しました。
-```
 
 #### E2Eテストの保守/運用
 - Selenium
 - WebDriver
 - Mocha.js
 
-```
 私が携わっているサイトの保守運用のためのE2Eテストを管理していました。
 
 mocha.jsというライブラリを利用しSelenium WebDriverを動かしています。
@@ -155,13 +150,11 @@ E2Eテストの保守と運用は知られている通りなかなかに骨の�
 また、Seleniumの知見が全くないメンバーだと簡単なE2Eテストの追加や修正でも時間がかかってしまうということに課題感を感じ、Seleniumの公式ドキュメントから、よく使うWebElement系の操作やWebDriverの待ち動作（until系）のコードをメンバーに共有し、よくあるE2Eテストの追加や修正の例を示すことで他のメンバーによるテストコードの実装が比較的簡単になり負担を分散させることができました。
 
 とはいえ、私も2018年の冬にE2Eテストの社内ツールを触るまでSeleniumの知見はなく、そこからサイトの開発の片手間にキャッチアップしていきました。今では自サイトのE2Eテストの管理者として保守とテストの管理をしています。
-```
 
 ### 株式会社NoSchool（2019/04〜2020/04）
 
 #### WordPressで運用していたサイトのリプレイス（Laravel & Nuxt & AWS移行）
 
-```
 副業先の教育×テクノロジーの分野でプロダクトを展開しているところで、脱WordPressをしていました。
 
 Laravelを用いて1次のリプレイスは進めていたものの、フルでLaravelはフロントが辛いということもありLaravelでどんどんAPIを作りNuxt.jsにフロントをリプレイスしていました。
@@ -181,15 +174,16 @@ https://speakerdeck.com/kimuchanman/fei-hurontoensiniakabao-su-tevuetifywoshi-ut
 JsonResourceを用いることで、Laravel側のAPIレスポンスを最適化しなおかつ見える化しました。
 aspidaを用いることでNuxt.js側でもAPIが見える化され、なおかつTypeScriptの推論の恩恵を大きく得られました。知り合いがaspidaの開発者なのも大きいのですが、aspidaは個人的にも応援しているOSSの一つで、以前紹介記事をQiitaに書かせていただきました。
 https://qiita.com/kimuchan/items/c60fbcb8e71baace0fc6
-```
 
 ### LIRIS（ライリス）株式会社（2019/12〜2021/02）
 
 #### 契約ライフサイクルマネジメントサービスの開発
 
-[こちら](https://clmlp.liris.co.jp/)のサービスの主にフロントエンド部分（Vue.js）の開発をしていました。</br>
-アトミックデザインに沿ったコンポーネント設計指針の元開発していました。
-Cypress で Vue,js の E2E テストも書いていました。
+https://clmlp.liris.co.jp/
+
+のフロントエンド領域を主に Vue.js で開発していました。
+また、Cypress で E2E テストの導入などもやっていました。
+
 
 ## 業務外活動
 
