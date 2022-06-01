@@ -141,7 +141,7 @@ TDK, OGP, DataLayer, Json-LD に挙げられる meta タグ内のコンテンツ
 
 また、バッチの自動化のため CloudWatch Events、サービスオーナーへの通知に AWS SNS を活用しました。
 
-このプロジェクトを完遂するまでは AWS にあまり詳しくなかったのですが、本プロジェクトを通してかなり AWS のノウハウがたまりましたので AWS Solution Associate 認定試験を後日受験し、見事合格しました。
+このプロジェクトを完遂するまでは AWS にあまり詳しくなかったのですが、本プロジェクトを通してかなり AWS のノウハウがたまりましたので AWS Solution Associate 認定試験を後日受験し合格しました。
 
 #### E2Eテストの保守/運用
 - Selenium
