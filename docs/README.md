@@ -2,14 +2,14 @@
 
 ## 基本情報
 
-|key|value|
-|:---:|:---:|
-|氏名|木村 慶 (Kimura Kei)|
-|生年月日|1995/08/11|
-|GitHub|[GitHub](https://github.com/kimuchanman)|
-|Zenn|[Zenn](https://zenn.dev/kimuchan)|
-|Qiita|[Qiita](https://qiita.com/kimuchan)|
-|SpeakerDeck|[SpeakerDeck](https://speakerdeck.com/kimuchanman)|
+|     key     |                       value                        |
+|:-----------:|:--------------------------------------------------:|
+|     氏名      |                 木村 慶 (Kimura Kei)                  |
+|    生年月日     |                     1995/08/11                     |
+|   GitHub    |      [GitHub](https://github.com/kimuchanman)      |
+|    Zenn     |         [Zenn](https://zenn.dev/kimuchan)          |
+|    Qiita    |        [Qiita](https://qiita.com/kimuchan)         |
+| SpeakerDeck | [SpeakerDeck](https://speakerdeck.com/kimuchanman) |
 
 ---
 
@@ -45,11 +45,11 @@
 
 ### 言語
 
-- PHP / TypeScript / Ruby / Go / Haskell
+- PHP / TypeScript / Ruby / Go / Haskell / Kotlin / Java
 
 ### フレームワーク・その他
 
-- CakePHP / Ruby on Rails / Laravel / Vue.js(Nuxt.js)
+- CakePHP / Ruby on Rails / Laravel / Vue.js(Nuxt.js) / Spring Boot
 - PHPUnit / RSpec / Jest / Selenium WebDriver や Cypress を用いた E2E テスト
 - AWS は Solution Architect Associate(SAA) を取得しています。基本的なサービスはだいたい業務や個人で触っています。レアなスキルですと、 AWS OpenSearch Service の VPC 内とパブリックドメイン両方のインフラ環境の構築とドキュメント/インデックス構築の経験があります
 
@@ -57,7 +57,9 @@
 
 ## 職務経歴概略
 
-### BASE株式会社（2020/08〜現在）
+### 株式会社エス・エム・エス（2022/09〜現在）
+
+### BASE株式会社（2020/08〜2022/08）
 
 #### インスタ広告 App の開発
 
@@ -78,7 +80,7 @@ API ドキュメントにはたまに正しいことが書かれていなかっ�
 - Amazon OpenSearch Service を用いて顧客検索システムのパフォーマンスを改善
 - 非同期アーキテクチャ、イベント駆動設計、マイクロサービス化
 
-現在も CRM 機能を統括的に見つつメルマガなど様々な BASE の Apps 開発もしています。
+その後は CRM 関連機能を統括的に見つつメルマガ App やアンケート App など様々な BASE の Apps 開発もしています。
 
 ### 株式会社LIFULL（2018/04〜2020/07）
 
