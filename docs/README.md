@@ -45,7 +45,7 @@
 
 ### 言語
 
-- PHP / TypeScript / Ruby / Go / Haskell / Kotlin / Java
+- PHP / TypeScript / JavaScript / Ruby / Go / Haskell / Kotlin / Java
 
 ### フレームワーク・その他
 
@@ -59,7 +59,13 @@
 
 ### 株式会社エス・エム・エス（2022/09〜現在）
 
+プロダクト開発部 介護経営支援開発グループ にて、カイポケのリアーキテクチャを SWE/アーキテクト として推進
+
+
 ### BASE株式会社（2020/08〜2022/08）
+
+入社時のインタビュー記事です<br>
+https://basebook.binc.jp/entry/2020/08/31/180000
 
 #### インスタ広告 App の開発
 
