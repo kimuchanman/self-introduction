@@ -2,14 +2,14 @@
 
 ## 基本情報
 
-|key|value|
-|:---:|:---:|
-|氏名|木村 慶 (Kimura Kei)|
-|生年月日|1995/08/11|
-|GitHub|[GitHub](https://github.com/kimuchanman)|
-|Zenn|[Zenn](https://zenn.dev/kimuchan)|
-|Qiita|[Qiita](https://qiita.com/kimuchan)|
-|SpeakerDeck|[SpeakerDeck](https://speakerdeck.com/kimuchanman)|
+|     key     |                       value                        |
+|:-----------:|:--------------------------------------------------:|
+|     氏名      |                 木村 慶 (Kimura Kei)                  |
+|    生年月日     |                     1995/08/11                     |
+|   GitHub    |      [GitHub](https://github.com/kimuchanman)      |
+|    Zenn     |         [Zenn](https://zenn.dev/kimuchan)          |
+|    Qiita    |        [Qiita](https://qiita.com/kimuchan)         |
+| SpeakerDeck | [SpeakerDeck](https://speakerdeck.com/kimuchanman) |
 
 ---
 
@@ -45,11 +45,11 @@
 
 ### 言語
 
-- PHP / TypeScript / Ruby / Go / Haskell
+- PHP / TypeScript / JavaScript / Ruby / Go / Haskell / Kotlin / Java
 
 ### フレームワーク・その他
 
-- CakePHP / Ruby on Rails / Laravel / Vue.js(Nuxt.js)
+- CakePHP / Ruby on Rails / Laravel / Vue.js(Nuxt.js) / Spring Boot
 - PHPUnit / RSpec / Jest / Selenium WebDriver や Cypress を用いた E2E テスト
 - AWS は Solution Architect Associate(SAA) を取得しています。基本的なサービスはだいたい業務や個人で触っています。レアなスキルですと、 AWS OpenSearch Service の VPC 内とパブリックドメイン両方のインフラ環境の構築とドキュメント/インデックス構築の経験があります
 
@@ -57,7 +57,15 @@
 
 ## 職務経歴概略
 
-### BASE株式会社（2020/08〜現在）
+### 株式会社エス・エム・エス（2022/09〜現在）
+
+プロダクト開発部 介護経営支援 開発グループ にて、カイポケのリアーキテクチャを SWE/アーキテクト として推進。
+
+
+### BASE株式会社（2020/08〜2022/08）
+
+入社時のインタビュー記事です<br>
+https://basebook.binc.jp/entry/2020/08/31/180000
 
 #### インスタ広告 App の開発
 
@@ -78,7 +86,18 @@ API ドキュメントにはたまに正しいことが書かれていなかっ�
 - Amazon OpenSearch Service を用いて顧客検索システムのパフォーマンスを改善
 - 非同期アーキテクチャ、イベント駆動設計、マイクロサービス化
 
-現在も CRM 機能を統括的に見つつメルマガなど様々な BASE の Apps 開発もしています。
+#### メルマガApp の開発
+
+これまで AWS SES を使ってメール送信していたのを、AWS SESv2 を利用。SendBulkEmail を利用して、これまで 1 hour かかるような処理を 18 min 程度に短縮（約 1/3 の短縮）。
+それによりショップオーナーが 1 日に送れるメルマガの上限を安全に緩和できた。
+また ShopFront（購入者から見たショップの画面）からそのショップの顧客に登録できる、いわゆるメルマガ登録機能を作成。
+
+#### アンケートApp の新規開発
+
+Google Form / SurveyMonkey を調査、それぞれ参考にして技術仕様と全体構想/設計を策定し推進。
+それぞれ技術領域が別れている Cart（購入カート）/ ShopFront（購入者から見たショップの画面）/ ShopAdmin（ショップオーナーが利用する管理画面）環境にて開発。
+
+その後は CRM 関連機能を統括的に見つつメルマガ App やアンケート App など様々な BASE の Apps 開発を行う。
 
 ### 株式会社LIFULL（2018/04〜2020/07）
 
@@ -92,20 +111,16 @@ API ドキュメントにはたまに正しいことが書かれていなかっ�
 - vue-property-decorator
 - TypeScript
 
-自社のサイトで、
-
-- ドメイン変更
-- サイト名変更
-- 全体のデザイン変更
-
-などを含めたの大幅なリニューアルがありました。
+自社のサイトで、 `ドメイン変更` `サイト名変更` `全体のデザイン変更` などを含めたの大幅なリニューアルがありました。
 
 私はこのプロジェクトに最初から関わり、主に開発メンバーとして参画しました。
-上で挙げたリニューアルの観点とは直接的には関係しませんが、そのそもそのサービスの前身が 2016 年ごろにかなりスピード重視で開発されたもので当時スピーディに開発する選択肢として Rails を選択した経緯があり、今後手を加えていくのがかなりキツイ現状でした。
+上で挙げたリニューアルの観点とは直接的には関係しませんが、
+そのそもそのサービスの前身が 2016 年ごろにかなりスピード重視で開発されたもので当時スピーディに開発する選択肢として Rails を選択した経緯があり、今後手を加えていくのがかなりキツイ現状でした。
 
 そのため、私含め開発メンバー4 人でリファクタリングを同時に進めていきました。
 
-まず、携わっていたサービスはほとんどのデータのやりとりが API を介して行われていたため Virtus をいう gem を用いてオブジェクトの attribute を型定義し、API を介して取得されたオブジェクトと API を見える化しました。アプリケーション規模も大きくなっていたので Rails way から離れリポジトリパターンを導入し、上記の Virtus を用いてエンティティをしっかり型定義し、リポジトリ層 Service 層と責務をしっかり明記することでアプリケーションの見通しを良くしました。
+まず、携わっていたサービスはほとんどのデータのやりとりが API を介して行われていたため Virtus をいう gem を用いてオブジェクトの attribute を型定義し、API を介して取得されたオブジェクトと API を見える化しました。
+アプリケーション規模も大きくなっていたので Rails way から離れリポジトリパターンを導入し、上記の Virtus を用いてエンティティをしっかり型定義し、リポジトリ層 Service 層と責務をしっかり明記することでアプリケーションの見通しを良くしました。
 
 さらに、基盤をコンテナ化し ECS に乗せるうえでデプロイ手法も OpsWorks から CodePipeline に切り替えました。
 
@@ -172,7 +187,7 @@ Selenium の知見が全くないメンバーだと簡単な E2E テストの追
 
 Laravel を用いて 1 次のリプレイスは進めていたものの、フルで Laravel はフロントが辛いということもあり Laravel でどんどん API を作り Nuxt.js にフロントをリプレイスしていました。
 
-そこで、私は管理画面系の Laravel & Nuxt.js のリプレイスと AWS の知見を生かしてデプロイや VPC の構築や Route 53 や ALB 周りの顧問的な立場も任されました。
+そこで、私は管理画面系の Laravel & Nuxt.js のリプレイスと AWS の知見を生かしてデプロイや Route 53 や ALB 周りのインフラ設定について顧問的な立場も任されました。
 
 Laravel でリポジトリパターンを採用しました。
 admin 用の middleware を Laravel, Nuxt ともに作成し Redis を用いてセッション管理することで Laravel, Nuxt 両方からログインユーザの整合性の問題も解消しました。
