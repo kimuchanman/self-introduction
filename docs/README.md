@@ -50,7 +50,7 @@
 ### フレームワーク・その他
 
 - CakePHP / Ruby on Rails / Laravel / Vue.js(Nuxt.js) / Spring Boot
-- PHPUnit / RSpec / Jest / Selenium WebDriver や Cypress を用いた E2E テスト
+- PHPUnit / JUnit / RSpec / Jest / Selenium WebDriver や Cypress を用いた E2E テスト
 - AWS は Solution Architect Associate(SAA) を取得しています。基本的なサービスはだいたい業務や個人で触っています。レアなスキルですと、 AWS OpenSearch Service の VPC 内とパブリックドメイン両方のインフラ環境の構築とドキュメント/インデックス構築の経験があります
 
 ---
@@ -59,7 +59,8 @@
 
 ### 株式会社エス・エム・エス（2022/09〜現在）
 
-プロダクト開発部 介護経営支援 開発グループ にて、Vertical Saas のカイポケとか
+プロダクト開発部 介護経営支援 開発グループ にて、カイポケの超大規模リニューアルに従事。
+主にプラットフォーム領域を担当している。
 
 
 ### BASE株式会社（2020/08〜2022/08）
