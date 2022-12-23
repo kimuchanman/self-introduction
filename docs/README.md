@@ -31,8 +31,7 @@
 - システム設計から実装まで
 - 割と幅広く
     - JavaScript / TypeScript + Vue.js(Nuxt.js) / React(Next.js) / NestJS でのフロントエンドやミドルウェア実装から
-    - Ruby on Rails / CakePHP / Laravel でのバックエンド実装から
-    - GraphQL (Apollo) / MySQL / PostgresQL
+    - Ruby on Rails / CakePHP / Laravel / Spring Boot でのバックエンド実装から
     - Auth0 と連携したシステム構築経験があります
     - RDB 設計やパフォーマンスチューニングを適切に AWS を利用（2019 年に Solution Architect Association 取得済みです）しつつ行うことができます
     - 耐障害性や SPoF をなくすシステム設計を考えるのが好きだったりします
@@ -50,10 +49,12 @@
 
 ### フレームワーク・その他
 
-- CakePHP / Ruby on Rails / Laravel / Vue.js(Nuxt.js) / Spring Boot
+- CakePHP / Ruby on Rails / Laravel / Vue.js(Nuxt.js) / React(Next.js) / Spring Boot / NestJS
 - PHPUnit / JUnit / RSpec / Jest / Selenium WebDriver や Cypress を用いた E2E テスト
+- GraphQL (Apollo)
+- MySQL / PostgresQL
 - AWS は Solution Architect Associate(SAA) を取得しています。基本的なサービスはだいたい業務や個人で触っています。レアなスキルですと、 AWS OpenSearch Service の VPC 内とパブリックドメイン両方のインフラ環境の構築とドキュメント/インデックス構築の経験があります
-
+ 
 ---
 
 ## 職務経歴概略
