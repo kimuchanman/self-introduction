@@ -30,10 +30,11 @@
 
 - システム設計から実装まで
 - 割と幅広く
-    - JavaScript / TypeScript + Vue.js(Nuxt.js) でのフロントエンド実装から
+    - JavaScript / TypeScript + Vue.js(Nuxt.js) / React(Next.js) / NestJS でのフロントエンドやミドルウェア実装から
     - Ruby on Rails / CakePHP / Laravel でのバックエンド実装から
-    - RDB 設計やパフォーマンスチューニング
-    - を適切に AWS を利用（2019 年に Solution Architect Association 取得済みです）しつつ行うことができます
+    - GraphQL (Apollo) / MySQL / PostgresQL
+    - Auth0 と連携したシステム構築経験があります
+    - RDB 設計やパフォーマンスチューニングを適切に AWS を利用（2019 年に Solution Architect Association 取得済みです）しつつ行うことができます
     - 耐障害性や SPoF をなくすシステム設計を考えるのが好きだったりします
 - また、アジャイル、スクラムの進行補助やプロジェクトマネジメントの経験もあります
 - paiza はシステムの都合上 public にプロフィールを公開できないですが S ランク です
@@ -60,7 +61,14 @@
 ### 株式会社エス・エム・エス（2022/09〜現在）
 
 プロダクト開発部 介護経営支援 開発グループ にて、カイポケの超大規模リニューアルに従事。
-主にプラットフォーム領域を担当している。
+主にプラットフォーム領域（アカウントまわりの機能群や各種サービスとフロントエンドをつなぐ GraphQL Federation の役割をする API Gateway まわり）を担当している。
+
+- Kotlin / Spring Boot
+- GraphQL / Apollo
+- NestJS
+- Auth0
+- React(Next.js)
+
 
 
 ### BASE株式会社（2020/08〜2022/08）
