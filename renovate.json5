@@ -16,6 +16,7 @@
   "patch": {
     "automerge": true
   },
+  "platformAutomerge": true,
   "includePaths": [
     ".github/workflows/**/*",
   ]
