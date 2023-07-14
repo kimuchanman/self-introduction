@@ -75,11 +75,11 @@
 ### BASE株式会社（2020/08〜2022/08）
 
 入社時のインタビュー記事です<br>
-https://basebook.binc.jp/entry/2020/08/31/180000
+[https://basebook.binc.jp/entry/2020/08/31/180000](https://basebook.binc.jp/entry/2020/08/31/180000)
 
 #### インスタ広告 App の開発
 
-BASE にて[こちら](https://admin.thebase.in/apps/110)の App の開発を行いました。
+BASE にて[インスタ広告 App](https://admin.thebase.in/apps/110)の開発を行いました。
 こちらは、Facebook Marketing API を使った外部連携機能です。
 API ドキュメントにはたまに正しいことが書かれていなかったり、連携先の環境は本番としか繋げられないがショップアカウントの開設条件が厳しいかったり、外部連携ならではの開発以外のところでの苦労が多かったです。
 
