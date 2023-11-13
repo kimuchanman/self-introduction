@@ -41,8 +41,9 @@ jobs:
           fi
       # PRがない場合は終了
       - name: Exit if no pull request
-        if: steps.get_labels.outputs.CONTINUE != 'true'
+        if: steps.get_labels.outputs.CONTINUE != true
         run: |
+          echo ${{ steps.get_labels.outputs.CONTINUE }}
           echo "No labeled pull request"
           exit 1
       # そのPRの全てのCIのステータスを取得する
