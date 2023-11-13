@@ -7,8 +7,6 @@ on:
 
 jobs:
   build:
-    env:
-      GITHUB_TOKEN: ${{ secrets.PAT }}
     name: lint text
     runs-on: ubuntu-latest
     steps:
