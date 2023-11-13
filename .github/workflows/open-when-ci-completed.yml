@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     # そのPRのCIが全て成功したら、PRをopenにする
     # 'ci-test'のついたPRのCIが全て成功したら、PRをopenにする
-    if: github.event.state == 'success' && contains(github.event.context.labels.*.name, 'ci-test')
+    if: contains(github.event.context.labels.*.name, 'ci-test')
     steps:
       # そのPRの全てのCIのステータスを取得する
       - name: Get all checks status
