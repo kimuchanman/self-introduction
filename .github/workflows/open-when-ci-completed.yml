@@ -16,6 +16,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
+            console.log("sha: ${{ github.event.sha }}")
             const res = await github.rest.repos.listPullRequestsAssociatedWithCommit({
               owner: "${{ github.event.repository.owner.login }}",
               repo: "${{ github.event.repository.name }}",
