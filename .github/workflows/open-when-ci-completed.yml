@@ -34,10 +34,10 @@ jobs:
           LABELS=$(gh pr view $PR_NUMBER -R ${{ github.repository }} --json labels -q '.labels[].name')
           if [[ $LABELS == *"$LABEL_NAME"* ]]; then
             echo "Label $LABEL_NAME found"
-            echo "CONTINUE=true" >> $GITHUB_ENV
+            echo "CONTINUE=true" >> $GITHUB_OUTPUT
           else
             echo "Label $LABEL_NAME not found"
-            echo "CONTINUE=false" >> $GITHUB_ENV
+            echo "CONTINUE=false" >> $GITHUB_OUTPUT
           fi
       # PRがない場合は終了
       - name: Exit if no pull request
