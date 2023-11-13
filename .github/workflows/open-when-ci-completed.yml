@@ -10,63 +10,54 @@ jobs:
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - run: cat $GITHUB_EVENT_PATH
+      # - run: cat $GITHUB_EVENT_PATH
       # sha から pull request number を特定する
       - name: Get pull request number
         id: get_pull_request_number
         uses: actions/github-script@v6
         with:
           script: |
-            console.log("sha: ${{ github.sha }}")
             const res = await github.rest.repos.listPullRequestsAssociatedWithCommit({
               owner: "${{ github.event.repository.owner.login }}",
               repo: "${{ github.event.repository.name }}",
               commit_sha: "${{ github.sha }}",
             })
             console.log(JSON.stringify(res, null, "\t"))
-            console.log(res.data[0].number)
-            console.log(res.data[0].head.ref)
             core.setOutput("pull_request_number", res.data[0].number)
-            core.setOutput("pull_request_branch", res.data[0].head.ref)
 
       # このPRに'ci-test'というlabelがついているかどうかを確認する
-      # - name: Get labels
-      #   id: get_labels
-      #   run: |
-      #     LABEL_NAME="ci-test"
-      #     PR_NUMBER=${{ github.event.pull_request.number }}
-      #     LABELS=$(gh pr view $PR_NUMBER --json labels -q '.labels.nodes[].name')
-      #     if [[ $LABELS == *"$LABEL_NAME"* ]]; then
-      #       echo "Label $LABEL_NAME found"
-      #       echo "CONTINUE=true" >> $GITHUB_ENV
-      #     else
-      #       echo "Label $LABEL_NAME not found"
-      #       echo "CONTINUE=false" >> $GITHUB_ENV
-      #     fi
-      #   env:
-      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Get labels
+        id: get_labels
+        run: |
+          LABEL_NAME="ci-test"
+          PR_NUMBER=${{ steps.get_pull_request_number.outputs.pull_request_number }}
+          LABELS=$(gh pr view $PR_NUMBER --json labels -q '.labels.nodes[].name')
+          if [[ $LABELS == *"$LABEL_NAME"* ]]; then
+            echo "Label $LABEL_NAME found"
+            echo "CONTINUE=true" >> $GITHUB_ENV
+          else
+            echo "Label $LABEL_NAME not found"
+            echo "CONTINUE=false" >> $GITHUB_ENV
+          fi
       # PRがない場合は終了
-      # - name: Exit if no pull request
-      #   if: steps.get_labels.outputs.result.length == 0
-      #   run: exit 0
+      - name: Exit if no pull request
+        if: steps.get_labels.outputs.CONTINUE != 'true'
+        run: exit 0
       # そのPRの全てのCIのステータスを取得する
       - name: Get all checks status
         id: get_checks_status
         uses: actions/github-script@v6
         with:
           script: |
-            {
-              console.log("== list ==")
-              const res = await github.rest.checks.listForRef({
-                owner: "${{ github.event.repository.owner.login }}",
-                repo: "${{ github.event.repository.name }}",
-                ref: "${{ github.sha }}",
-              })
-              console.log(JSON.stringify(res, null, "\t"))
-              core.setOutput("checks", res.data.check_runs.filter(check => check.name !== "open-pr-ci-completed"))
-            }
+            const res = await github.rest.checks.listForRef({
+              owner: "${{ github.event.repository.owner.login }}",
+              repo: "${{ github.event.repository.name }}",
+              ref: "${{ github.sha }}",
+            })
+            console.log(JSON.stringify(res, null, "\t"))
+            core.setOutput("checks", res.data.check_runs.filter(check => check.name !== "open-pr-ci-completed"))
       # get_checks_status の output が全て success なら、PRをopenにする
-      - name: Open this pull request
-        # if: ${{ steps.get_checks_status.outputs.checks.length == 0 || steps.get_checks_status.outputs.checks.*.status == 'completed' }}
+      - name: Ready for review this pull request
+        if: ${{ steps.get_checks_status.outputs.checks.length == 0 || steps.get_checks_status.outputs.checks.*.status == 'completed' }}
         run: gh pr ready ${{ steps.get_pull_request_number.outputs.pull_request_number }} -R ${{ github.repository }}
         
