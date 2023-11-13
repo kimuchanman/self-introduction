@@ -10,17 +10,18 @@ jobs:
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
+      - run: cat $GITHUB_EVENT_PATH
       # sha から pull request number を特定する
       - name: Get pull request number
         id: get_pull_request_number
         uses: actions/github-script@v6
         with:
           script: |
-            console.log("sha: ${{ github.event.sha }}")
+            console.log("sha: ${{ github.sha }}")
             const res = await github.rest.repos.listPullRequestsAssociatedWithCommit({
               owner: "${{ github.event.repository.owner.login }}",
               repo: "${{ github.event.repository.name }}",
-              commit_sha: "${{ github.event.sha }}",
+              commit_sha: "${{ github.sha }}",
             })
             console.log(JSON.stringify(res, null, "\t"))
             console.log(res.data[0].number)
@@ -58,7 +59,7 @@ jobs:
               console.log("== list ==")
               const res = await github.rest.repos.listCommitStatusesForRef({
                 repo: "${{ github.event.repository.name }}",
-                ref: "${{ github.event.sha }}",
+                ref: "${{ github.sha }}",
               })
               console.log(JSON.stringify(res, null, "\t"))
             }
@@ -70,7 +71,7 @@ jobs:
           script: |
             github.pulls.update({
               repo: "${{ github.event.repository.name }}",
-              pull_number: ${{ github.event.pull_request.number }}}},
+              pull_number: ${{ steps.get_pull_request_number.outputs.result.pull_request_number }},
               state: 'open'
             });
       
