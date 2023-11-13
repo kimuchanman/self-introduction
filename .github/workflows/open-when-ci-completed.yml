@@ -31,7 +31,7 @@ jobs:
         run: |
           LABEL_NAME="ci-test"
           PR_NUMBER=${{ steps.get_pull_request_number.outputs.pull_request_number }}
-          LABELS=$(gh pr view $PR_NUMBER --json labels -q '.labels.nodes[].name')
+          LABELS=$(gh pr view $PR_NUMBER -R ${{ github.repository }} --json labels -q '.labels.nodes[].name')
           if [[ $LABELS == *"$LABEL_NAME"* ]]; then
             echo "Label $LABEL_NAME found"
             echo "CONTINUE=true" >> $GITHUB_ENV
