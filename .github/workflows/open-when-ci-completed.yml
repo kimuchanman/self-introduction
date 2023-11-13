@@ -2,7 +2,7 @@ name: open-pr-ci-completed
 
 on:
   check_suite:
-    types: [completed]
+    # types: [completed]
   workflow_dispatch:
 
 jobs:
