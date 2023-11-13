@@ -72,6 +72,7 @@ jobs:
         with:
           script: |
             github.pulls.update({
+              owner: "${{ github.event.repository.owner.login }}",
               repo: "${{ github.event.repository.name }}",
               pull_number: ${{ steps.get_pull_request_number.outputs.pull_request_number }},
               state: 'open'
