@@ -7,51 +7,60 @@ on:
 jobs:
   open-pr-ci-completed:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      # 'ci-test'というlabelのついたPRのCIが全て成功したら、PRをopenにする
-      - name: Get labels
-        id: get_labels
-        uses: actions/github-script@v3
+      # - run: cat $GITHUB_EVENT_PATH
+      # sha から pull request number を特定する
+      - name: Get pull request number
+        id: get_pull_request_number
+        uses: actions/github-script@v6
         with:
           script: |
-            const response = await github.pulls.list({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              state: 'open'
-            });
-            return response.data.filter(pull => pull.labels.some(label => label.name === 'ci-test'));
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            const res = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+              owner: "${{ github.event.repository.owner.login }}",
+              repo: "${{ github.event.repository.name }}",
+              commit_sha: "${{ github.sha }}",
+            })
+            console.log(JSON.stringify(res, null, "\t"))
+            core.setOutput("pull_request_number", res.data[0].number)
+
+      # このPRに'ci-test'というlabelがついているかどうかを確認する
+      - name: Get labels
+        id: get_labels
+        run: |
+          LABEL_NAME="ci-test"
+          PR_NUMBER=${{ steps.get_pull_request_number.outputs.pull_request_number }}
+          LABELS=$(gh pr view $PR_NUMBER -R ${{ github.repository }} --json labels -q '.labels[].name')
+          if [[ $LABELS == *"$LABEL_NAME"* ]]; then
+            echo "Label $LABEL_NAME found"
+            echo "CONTINUE=true" >> $GITHUB_OUTPUT
+          else
+            echo "Label $LABEL_NAME not found"
+            echo "CONTINUE=false" >> $GITHUB_OUTPUT
+          fi
       # PRがない場合は終了
       - name: Exit if no pull request
-        if: steps.get_labels.outputs.result.length == 0
-        run: exit 0
+        if: steps.get_labels.outputs.CONTINUE != 'true'
+        run: |
+          echo ${{ steps.get_labels.outputs.CONTINUE }}
+          echo "No labeled pull request"
+          exit 1
       # そのPRの全てのCIのステータスを取得する
       - name: Get all checks status
         id: get_checks_status
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           script: |
-            const response = await github.checks.listForRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: context.payload.pull_request.head.sha
-            });
-            return response.data.check_runs.map(check => check.conclusion);
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            const res = await github.rest.checks.listForRef({
+              owner: "${{ github.event.repository.owner.login }}",
+              repo: "${{ github.event.repository.name }}",
+              ref: "${{ github.sha }}",
+            })
+            console.log(JSON.stringify(res, null, "\t"))
+            core.setOutput("checks", res.data.check_runs.filter(check => check.name !== "open-pr-ci-completed"))
       # get_checks_status の output が全て success なら、PRをopenにする
-      - name: Open this pull request
-        if: ${{ join(steps.get_checks_status.outputs.* == 'success', ' && ') }}
-        uses: actions/github-script@v3
-        with:
-          script: |
-            github.pulls.update({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: context.payload.pull_request.number,
-              state: 'open'
-            });
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
+      - name: Ready for review this pull request
+        if: ${{ steps.get_checks_status.outputs.checks.length == 0 || steps.get_checks_status.outputs.checks.*.status == 'completed' }}
+        run: gh pr ready ${{ steps.get_pull_request_number.outputs.pull_request_number }} -R ${{ github.repository }}
+        
