@@ -63,11 +63,11 @@ jobs:
                 ref: "${{ github.sha }}",
               })
               console.log(JSON.stringify(res, null, "\t"))
-              core.setOutput("statuses", res.data.map((d) => d.state))
+              core.setOutput("checks", res.data.check_runs.filter(check => check.name !== "open-pr-ci-completed"))
             }
       # get_checks_status の output が全て success なら、PRをopenにする
       - name: Open this pull request
-        # if: ${{ steps.get_checks_status.outputs.result.statuses.length == 0 || steps.get_checks_status.outputs.result.statuses.all('success') }}
+        # if: ${{ steps.get_checks_status.outputs.result.checks.length == 0 || steps.get_checks_status.outputs.result.checks.*.status == 'completed' }}
         uses: actions/github-script@v6
         with:
           script: |
