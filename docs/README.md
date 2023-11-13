@@ -221,6 +221,7 @@ https://qiita.com/kimuchan/items/c60fbcb8e71baace0fc6
 
 [https://clmlp.liris.co.jp/](https://clmlp.liris.co.jp/)
 
+
 のフロントエンド領域を主に Vue.js で開発していました。
 また、Cypress で E2E テストの導入などもやっていました。
 
