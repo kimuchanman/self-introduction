@@ -4,12 +4,11 @@ on:
   status:
   workflow_dispatch:
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
   open-pr-ci-completed:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       # sha から pull request number を特定する
       - name: Get pull request number
@@ -62,8 +61,6 @@ jobs:
               })
               console.log(JSON.stringify(res, null, "\t"))
             }
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # get_checks_status の output が全て success なら、PRをopenにする
       - name: Open this pull request
         if: ${{ join(steps.get_checks_status.outputs.* == 'success', ' && ') }}
@@ -75,6 +72,4 @@ jobs:
               pull_number: ${{ github.event.pull_request.number }}}},
               state: 'open'
             });
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
