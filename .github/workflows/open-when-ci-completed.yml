@@ -57,7 +57,7 @@ jobs:
           script: |
             {
               console.log("== list ==")
-              const res = await github.rest.repos.listStatus({
+              const res = await github.rest.checks.listForRef({
                 owner: "${{ github.event.repository.owner.login }}",
                 repo: "${{ github.event.repository.name }}",
                 ref: "${{ github.sha }}",
