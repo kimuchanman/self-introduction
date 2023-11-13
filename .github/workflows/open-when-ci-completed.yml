@@ -2,7 +2,7 @@ name: open-pr-ci-completed
 
 on:
   status:
-  # workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   open-pr-ci-completed:
