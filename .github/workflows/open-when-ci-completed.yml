@@ -7,10 +7,25 @@ on:
 jobs:
   open-pr-ci-completed:
     runs-on: ubuntu-latest
-    # そのPRのCIが全て成功したら、PRをopenにする
-    # 'ci-test'のついたPRのCIが全て成功したら、PRをopenにする
-    if: contains(github.event.context.labels.*.name, 'ci-test')
     steps:
+      # 'ci-test'というlabelのついたPRのCIが全て成功したら、PRをopenにする
+      - name: Get labels
+        id: get_labels
+        uses: actions/github-script@v3
+        with:
+          script: |
+            const response = await github.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open'
+            });
+            return response.data.filter(pull => pull.labels.some(label => label.name === 'ci-test'));
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # PRがない場合は終了
+      - name: Exit if no pull request
+        if: steps.get_labels.outputs.result.length == 0
+        run: exit 0
       # そのPRの全てのCIのステータスを取得する
       - name: Get all checks status
         id: get_checks_status
