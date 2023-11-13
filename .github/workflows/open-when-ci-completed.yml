@@ -63,7 +63,7 @@ jobs:
                 ref: "${{ github.sha }}",
               })
               console.log(JSON.stringify(res, null, "\t"))
-              core.setOutput("statuses", res.data.map((d) => d.state)
+              core.setOutput("statuses", res.data.map((d) => d.state))
             }
       # get_checks_status の output が全て success なら、PRをopenにする
       - name: Open this pull request
