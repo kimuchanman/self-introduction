@@ -1,38 +1,42 @@
 name: open-pr-ci-completed
 
 on:
-  # pull_request:
-  #   types: [labeled]
-  check_suite:
-    types: [completed]
+  status:
+  # workflow_dispatch:
 
 jobs:
   open-pr-ci-completed:
     runs-on: ubuntu-latest
-    if: github.event.check_suite.conclusion == 'success' && contains(github.event.check_suite.pull_requests[0].labels.*.name, 'ci-test')
+    # そのPRのCIが全て成功したら、PRをopenにする
+    # 'ci-test'のついたPRのCIが全て成功したら、PRをopenにする
+    if: github.event.state == 'success' && contains(github.event.context.labels.*.name, 'ci-test')
     steps:
-      # - name: get pr label
-      #   id: get_pr_label
-      #   uses: actions/github-script@v3
-      #   with:
-      #     script: |
-      #       const pr = await github.pulls.get({
-      #         owner: context.repo.owner,
-      #         repo: context.repo.repo,
-      #         pull_number: context.payload.check_suite.pull_requests[0].number
-      #       });
-      #       return pr.data.labels[0].name;
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Open this pull request
-        uses: peter-evans/open-pull-request@v1
+      # そのPRの全てのCIのステータスを取得する
+      - name: Get all checks status
+        id: get_checks_status
+        uses: actions/github-script@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.event.check_suite.head_branch }}
-          # title: ${{ github.event.check_suite.pull_requests[0].title }}
-          # body: ${{ github.event.check_suite.pull_requests[0].body }}
-          # labels: ${{ github.event.check_suite.pull_requests[0].labels.*.name }}
-          draft: false
-          # delete_branch: false
-
+          script: |
+            const response = await github.checks.listForRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: context.payload.pull_request.head.sha
+            });
+            return response.data.check_runs.map(check => check.conclusion);
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # get_checks_status の output が全て success なら、PRをopenにする
+      - name: Open this pull request
+        if: ${{ join(steps.get_checks_status.outputs.* == 'success', ' && ') }}
+        uses: actions/github-script@v3
+        with:
+          script: |
+            github.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+              state: 'open'
+            });
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
