@@ -1,6 +1,7 @@
 name: open-pr-ci-completed
 
 on:
+  pull_request:
   check_suite:
     # types: [completed]
   workflow_dispatch:
