@@ -6,6 +6,8 @@ on:
       - docs/README.md
 
 jobs:
+  env:
+    GITHUB_TOKEN: ${{ secrets.PAT }}
   build:
     name: lint text
     runs-on: ubuntu-latest
