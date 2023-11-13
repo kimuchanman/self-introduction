@@ -4,10 +4,30 @@ on:
   status:
   workflow_dispatch:
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   open-pr-ci-completed:
     runs-on: ubuntu-latest
     steps:
+      # sha から pull request number を特定する
+      - name: Get pull request number
+        id: get_pull_request_number
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const res = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+              owner: "${{ github.event.repository.owner.login }}",
+              repo: "${{ github.event.repository.name }}",
+              commit_sha: "${{ github.event.sha }}",
+            })
+            console.log(JSON.stringify(res, null, "\t"))
+            console.log(res.data[0].number)
+            console.log(res.data[0].head.ref)
+            core.setOutput("pull_request_number", res.data[0].number)
+            core.setOutput("pull_request_branch", res.data[0].head.ref)
+
       # このPRに'ci-test'というlabelがついているかどうかを確認する
       # - name: Get labels
       #   id: get_labels
@@ -37,8 +57,7 @@ jobs:
             {
               console.log("== list ==")
               const res = await github.rest.repos.listCommitStatusesForRef({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
+                repo: "${{ github.event.repository.name }}",
                 ref: "${{ github.event.sha }}",
               })
               console.log(JSON.stringify(res, null, "\t"))
@@ -52,9 +71,8 @@ jobs:
         with:
           script: |
             github.pulls.update({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: context.payload.pull_request.number,
+              repo: "${{ github.event.repository.name }}",
+              pull_number: ${{ github.event.pull_request.number }}}},
               state: 'open'
             });
         env:
