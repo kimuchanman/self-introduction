@@ -9,37 +9,40 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # このPRに'ci-test'というlabelがついているかどうかを確認する
-      - name: Get labels
-        id: get_labels
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const response = await github.issues.listLabelsOnIssue({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.payload.pull_request.number
-            });
-            console.log(response.data);
-            return response.data.map(label => label.name);
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Get labels
+      #   id: get_labels
+      #   run: |
+      #     LABEL_NAME="ci-test"
+      #     PR_NUMBER=${{ github.event.pull_request.number }}
+      #     LABELS=$(gh pr view $PR_NUMBER --json labels -q '.labels.nodes[].name')
+      #     if [[ $LABELS == *"$LABEL_NAME"* ]]; then
+      #       echo "Label $LABEL_NAME found"
+      #       echo "CONTINUE=true" >> $GITHUB_ENV
+      #     else
+      #       echo "Label $LABEL_NAME not found"
+      #       echo "CONTINUE=false" >> $GITHUB_ENV
+      #     fi
+      #   env:
+      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # PRがない場合は終了
-      - name: Exit if no pull request
-        if: steps.get_labels.outputs.result.length == 0
-        run: exit 0
+      # - name: Exit if no pull request
+      #   if: steps.get_labels.outputs.result.length == 0
+      #   run: exit 0
       # そのPRの全てのCIのステータスを取得する
       - name: Get all checks status
         id: get_checks_status
         uses: actions/github-script@v6
         with:
           script: |
-            const response = await github.checks.listForRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: ${{ github.event.sha }}
-            });
-            console.log(response.data);
-            return response.data.check_runs.map(check => check.conclusion);
+            {
+              console.log("== list ==")
+              const res = await github.rest.repos.listCommitStatusesForRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: "${{ github.event.sha }}",
+              })
+              console.log(JSON.stringify(res, null, "\t"))
+            }
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # get_checks_status の output が全て success なら、PRをopenにする
