@@ -11,7 +11,7 @@ jobs:
       # 'ci-test'というlabelのついたPRのCIが全て成功したら、PRをopenにする
       - name: Get labels
         id: get_labels
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           script: |
             const response = await github.pulls.list({
@@ -29,7 +29,7 @@ jobs:
       # そのPRの全てのCIのステータスを取得する
       - name: Get all checks status
         id: get_checks_status
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           script: |
             const response = await github.checks.listForRef({
@@ -43,7 +43,7 @@ jobs:
       # get_checks_status の output が全て success なら、PRをopenにする
       - name: Open this pull request
         if: ${{ join(steps.get_checks_status.outputs.* == 'success', ' && ') }}
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         with:
           script: |
             github.pulls.update({
