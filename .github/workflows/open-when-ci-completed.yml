@@ -8,19 +8,19 @@ jobs:
   open-pr-ci-completed:
     runs-on: ubuntu-latest
     steps:
-      # 'ci-test'というlabelのついたPRのCIが全て成功したら、PRをopenにする
+      # このPRに'ci-test'というlabelがついているかどうかを確認する
       - name: Get labels
         id: get_labels
         uses: actions/github-script@v6
         with:
           script: |
-            const response = await github.pulls.list({
+            const response = await github.issues.listLabelsOnIssue({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              state: 'open'
+              issue_number: context.payload.pull_request.number
             });
             console.log(response.data);
-            return response.data.filter(pull => pull.labels.some(label => label.name === 'ci-test'));
+            return response.data.map(label => label.name);
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # PRがない場合は終了
