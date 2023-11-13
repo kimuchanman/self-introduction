@@ -57,15 +57,17 @@ jobs:
           script: |
             {
               console.log("== list ==")
-              const res = await github.rest.repos.listCommitStatusesForRef({
+              const res = await github.rest.repos.listStatus({
+                owner: "${{ github.event.repository.owner.login }}",
                 repo: "${{ github.event.repository.name }}",
                 ref: "${{ github.sha }}",
               })
               console.log(JSON.stringify(res, null, "\t"))
+              core.setOutput("statuses", res.data.map((d) => d.state)
             }
       # get_checks_status の output が全て success なら、PRをopenにする
       - name: Open this pull request
-        if: ${{ join(steps.get_checks_status.outputs.* == 'success', ' && ') }}
+        # if: ${{ steps.get_checks_status.outputs.result.statuses.length == 0 || steps.get_checks_status.outputs.result.statuses.all('success') }}
         uses: actions/github-script@v6
         with:
           script: |
