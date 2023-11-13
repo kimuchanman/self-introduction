@@ -68,17 +68,5 @@ jobs:
       # get_checks_status の output が全て success なら、PRをopenにする
       - name: Open this pull request
         # if: ${{ steps.get_checks_status.outputs.checks.length == 0 || steps.get_checks_status.outputs.checks.*.status == 'completed' }}
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const res = await github.rest.pulls.update({
-              owner: "${{ github.event.repository.owner.login }}",
-              repo: "${{ github.event.repository.name }}",
-              pull_number: ${{ steps.get_pull_request_number.outputs.pull_request_number }},
-              state: 'open',
-              draft: false
-            });
-            console.log(JSON.stringify(res, null, "\t"))
-      # get_checks_status の output が全て success なら、PRをdraftからready for reviewにする
-
-      
+        run: gh pr ready ${{ steps.get_pull_request_number.outputs.pull_request_number }}
+        
