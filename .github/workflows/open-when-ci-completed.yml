@@ -68,5 +68,5 @@ jobs:
       # get_checks_status の output が全て success なら、PRをopenにする
       - name: Open this pull request
         # if: ${{ steps.get_checks_status.outputs.checks.length == 0 || steps.get_checks_status.outputs.checks.*.status == 'completed' }}
-        run: gh pr ready ${{ steps.get_pull_request_number.outputs.pull_request_number }}
+        run: gh pr ready ${{ steps.get_pull_request_number.outputs.pull_request_number }} -R ${{ github.repository }}
         
