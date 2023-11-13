@@ -7,8 +7,10 @@ on:
 jobs:
   open-pr-ci-completed:
     runs-on: ubuntu-latest
+    timeout-minutes: 1
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    if: github.event.state == 'success'
     steps:
       # - run: cat $GITHUB_EVENT_PATH
       # sha から pull request number を特定する

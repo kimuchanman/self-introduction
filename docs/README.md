@@ -208,19 +208,20 @@ Vuetify の使用感はとてもよく、Vue のコンポーネント思想と U
 
 Vuetify を使い倒して知見も溜まったので、Vuetify_meetup というイベントにも参加して登壇しました。
 こちらがその時の登壇資料です。
-https://speakerdeck.com/kimuchanman/fei-hurontoensiniakabao-su-tevuetifywoshi-utamenikiyatutisita6tufalsekoto
+
+[https://speakerdeck.com/kimuchanman/fei-hurontoensiniakabao-su-tevuetifywoshi-utamenikiyatutisita6tufalsekoto](https://speakerdeck.com/kimuchanman/fei-hurontoensiniakabao-su-tevuetifywoshi-utamenikiyatutisita6tufalsekoto)
 
 また、API 開発の際に、Laravel の JsonResource と TypeScript では aspida という HTTP クライアントラッパーの OSS を活用しました。
 JsonResource を用いることで、Laravel 側の API レスポンスを最適化しなおかつ見える化しました。
 aspida を用いることで Nuxt.js 側でも API が見える化され、なおかつ TypeScript の推論の恩恵を大きく得られました。知り合いが aspida の開発者なのも大きいのですが、aspida は個人的にも応援している OSS の 1 つで、以前紹介記事を Qiita に書かせていただきました。
-https://qiita.com/kimuchan/items/c60fbcb8e71baace0fc6
+
+[https://qiita.com/kimuchan/items/c60fbcb8e71baace0fc6](https://qiita.com/kimuchan/items/c60fbcb8e71baace0fc6)
 
 ### LIRIS（ライリス）株式会社（2019/12〜2021/02）
 
 #### 契約ライフサイクルマネジメントサービスの開発
 
 [https://clmlp.liris.co.jp/](https://clmlp.liris.co.jp/)
-
 
 のフロントエンド領域を主に Vue.js で開発していました。
 また、Cypress で E2E テストの導入などもやっていました。
