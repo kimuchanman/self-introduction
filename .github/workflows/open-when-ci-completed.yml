@@ -13,7 +13,7 @@ jobs:
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - run: cat $GITHUB_EVENT_PATH
+      # - run: cat $GITHUB_EVENT_PATH
       # sha から pull request number を特定する
       - name: Get associated pull request
         id: get_pull_request_number
