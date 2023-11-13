@@ -67,13 +67,13 @@ jobs:
             }
       # get_checks_status の output が全て success なら、PRをopenにする
       - name: Open this pull request
-        # if: ${{ steps.get_checks_status.outputs.result.checks.length == 0 || steps.get_checks_status.outputs.result.checks.*.status == 'completed' }}
+        # if: ${{ steps.get_checks_status.outputs.checks.length == 0 || steps.get_checks_status.outputs.checks.*.status == 'completed' }}
         uses: actions/github-script@v6
         with:
           script: |
             github.pulls.update({
               repo: "${{ github.event.repository.name }}",
-              pull_number: ${{ steps.get_pull_request_number.outputs.result.pull_request_number }},
+              pull_number: ${{ steps.get_pull_request_number.outputs.pull_request_number }},
               state: 'open'
             });
       
