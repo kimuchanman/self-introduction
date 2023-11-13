@@ -6,11 +6,6 @@
 
 お仕事の依頼やスカウトは、本リポジトリのIssueや私のGitHubアカウントなどへ向けてご連絡ください。
 
-<!--
-- PDF
-- File
--->
-
 ## Features
 
 ### 💅 Lint text
