@@ -4,8 +4,6 @@ on:
   workflow_run:
     workflows: ["lint text"]
     types: [completed]
-  # check_suite:
-    # types: [completed]
   workflow_dispatch:
 
 jobs:
@@ -14,14 +12,13 @@ jobs:
     timeout-minutes: 1
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    # if: github.event.state == 'success' || github.event_name == 'workflow_dispatch'
     steps:
-      - run: cat $GITHUB_EVENT_PATH
+      # - run: cat $GITHUB_EVENT_PATH
       # sha から pull request number を特定する
       - name: Get associated pull request
         id: get_pull_request_number
         run: |
-          PR=$(gh api repos/${{ github.repository }}/commits/${{ github.event.workflow_run.head_sha || github.sha }}/pulls | jq '.[0].number')
+          PR=$(gh api repos/${{ github.repository }}/commits/${{ github.sha }}/pulls | jq '.[0].number')
           echo "pull_request_number=$PR" >> $GITHUB_OUTPUT
       # このPRに'ci-test'というlabelがついているかどうかを確認する
       - name: Get labels
