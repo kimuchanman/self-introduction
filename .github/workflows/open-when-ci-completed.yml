@@ -16,33 +16,28 @@ jobs:
       # - run: cat $GITHUB_EVENT_PATH
       # sha から pull request number を特定する
       - name: Get associated pull request
-        id: get_pull_request_number
+        id: get_pull_request
         run: |
-          PR=$(gh api repos/${{ github.repository }}/commits/${{ github.event.workflow_run.head_sha || github.sha }}/pulls | jq '.[0].number')
-          echo "pull_request_number=$PR" >> $GITHUB_OUTPUT
+          PR=$(gh api repos/${{ github.repository }}/commits/${{ github.event.workflow_run.head_sha || github.sha }}/pulls | jq '.[0]')
+          PR_NUM=$(echo $PR | jq '.number')
+          LABELS=$(echo $PR | jq '.labels[].name')
+          echo "number=$PR_NUM" >> $GITHUB_OUTPUT
+          echo "lavels=$LABELS" >> $GITHUB_OUTPUT
       # このPRに'ci-test'というlabelがついているかどうかを確認する
       - name: Get labels
         id: get_labels
         run: |
           LABEL_NAME="ci-test"
-          PR_NUMBER=${{ steps.get_pull_request_number.outputs.pull_request_number }}
-          LABELS=$(gh pr view $PR_NUMBER -R ${{ github.repository }} --json labels -q '.labels[].name')
-          if [[ $LABELS == *"$LABEL_NAME"* ]]; then
+          if [[ ${{ steps.get_pull_request.outputs.labels }} == *"$LABEL_NAME"* ]]; then
             echo "Label $LABEL_NAME found"
             echo "CONTINUE=true" >> $GITHUB_OUTPUT
           else
             echo "Label $LABEL_NAME not found"
             echo "CONTINUE=false" >> $GITHUB_OUTPUT
           fi
-      # PRがない場合は終了
-      - name: Exit if no pull request
-        if: steps.get_labels.outputs.CONTINUE != 'true'
-        run: |
-          echo ${{ steps.get_labels.outputs.CONTINUE }}
-          echo "No labeled pull request"
-          exit 1
       # そのPRの全てのCIのステータスを取得する
       - name: Get all checks status
+        if: steps.get_labels.outputs.CONTINUE == 'true'
         id: get_checks_status
         uses: actions/github-script@v6
         with:
@@ -56,6 +51,6 @@ jobs:
             core.setOutput("checks", res.data.check_runs.filter(check => check.name !== "open-pr-ci-completed"))
       # get_checks_status の output が全て success なら、PRをopenにする
       - name: Ready for review this pull request
-        if: ${{ steps.get_checks_status.outputs.checks.length == 0 || steps.get_checks_status.outputs.checks.*.status == 'completed' }}
+        if: ${{ success() && (steps.get_checks_status.outputs.checks.length == 0 || steps.get_checks_status.outputs.checks.*.status == 'completed') }}
         run: gh pr ready ${{ steps.get_pull_request_number.outputs.pull_request_number }} -R ${{ github.repository }}
         
