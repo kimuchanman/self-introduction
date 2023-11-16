@@ -53,5 +53,7 @@ jobs:
             core.setOutput("checks", res.data.check_runs.filter(check => check.name !== "open-pr-ci-completed"))
       # get_checks_status の output が全て success なら、PRをopenにする
       - name: Ready for review this pull request
-        if: ${{ success() && steps.get_pull_request.outputs.draft != 'false' && (steps.get_checks_status.outputs.checks.length == 0 || steps.get_checks_status.outputs.checks.*.status == 'completed') }}
+        if: ${{ steps.get_labels.outputs.CONTINUE == 'true'
+          && steps.get_pull_request.outputs.draft != 'false'
+          && (steps.get_checks_status.outputs.checks.length == 0 || steps.get_checks_status.outputs.checks.*.status == 'completed') }}
         run: gh pr ready ${{ steps.get_pull_request.outputs.number }} -R ${{ github.repository }}  
