@@ -1,0 +1,11 @@
+name: do nothing
+
+on:
+  pull_request:
+    types: [ opened ]
+
+jobs:
+  run-test:
+    name: Run test
+    runs-on: ubuntu-latest
+    
