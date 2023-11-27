@@ -8,4 +8,8 @@ jobs:
   run-test:
     name: Run test
     runs-on: ubuntu-latest
-    
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run test
+        run: |
+          echo "Run test"
