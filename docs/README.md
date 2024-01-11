@@ -79,7 +79,7 @@
 プラットフォームチームにて、
 カイポケ全体にわたる機能（アカウント（認証/認可）、コミュニケーション、販売管理）を開発した。
 また、カイポケリニューアルのモノレポ化や全体の CI/CD の構築を行いました。
-そのあたりの話は[こちらのZenn記事](https://zenn.dev/kimuchan/articles/f5ba954ca4fbf8)にまとめています。
+そのあたりの話は[ファーストリリース前にモノレポ移行した話](https://zenn.dev/kimuchan/articles/f5ba954ca4fbf8)にまとめています。
 
 - Kotlin / Spring Boot
 - PostgreSQL
