@@ -21,6 +21,8 @@ jobs:
         run: |
           echo "GITHUB_EVENT_BOOLEAN_INPUT is: $GITHUB_EVENT_BOOLEAN_INPUT"
           echo "INPUTS_BOOLEAN_INPUT is: $INPUTS_BOOLEAN_INPUT"
+          echo "github.event.inputs.boolean_input is: ${{ github.event.inputs.boolean_input }}"
+          echo "inputs.boolean_input is: ${{ inputs.boolean_input }}"
 
       - name: Run if github.event.inputs.boolean_input
         if: ${{ github.event.inputs.boolean_input }}
