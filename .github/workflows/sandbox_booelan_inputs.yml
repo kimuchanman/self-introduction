@@ -22,30 +22,30 @@ jobs:
           echo "GITHUB_EVEMT_BOOLEAN_INPUT is: $GITHUB_EVEMT_BOOLEAN_INPUT"
           echo "INPUTS_BOOLEAN_INPUT is: $INPUTS_BOOLEAN_INPUT"
 
-      - name: Run if boolean_input
+      - name: Run if github.event.inputs.boolean_input
         if: ${{ github.event.inputs.boolean_input }}
         run: |
           echo "github.event.inputs.boolean_input is true"
-      - name: Run if boolean_input
+      - name: Run if inputs.boolean_input
         if: ${{ inputs.boolean_input }}
         run: |
           echo "inputs.boolean_input is true"
 
 
-      - name: Don't run if boolean_input
+      - name: Don't run if github.event.inputs.boolean_input
         if: ${{ ! github.event.inputs.boolean_input }}
         run: |
           echo "github.event.inputs.boolean_input is true"
-      - name: Don't run if boolean_input
+      - name: Don't run if inputs.boolean_input
         if: ${{ ! inputs.boolean_input }}
         run: |
           echo "inputs.boolean_input is true"
 
-      - name: Run if boolean_input == 'true'
+      - name: Run if github.event.inputs.boolean_input == 'true'
         if: ${{ github.event.inputs.boolean_input == 'true' }}
         run: |
           echo "github.event.inputs.boolean_input == 'true' is true"
-      - name: Run if boolean_input == 'true'
+      - name: Run if inputs.boolean_input == 'true'
         if: ${{ inputs.boolean_input == 'true' }}
         run: |
           echo "inputs.boolean_input == 'true' is true"
