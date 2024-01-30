@@ -14,12 +14,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
-      GITHUB_EVEMT_BOOLEAN_INPUT: ${{ github.event.inputs.boolean_input }}
+      GITHUB_EVENT_BOOLEAN_INPUT: ${{ github.event.inputs.boolean_input }}
       INPUTS_BOOLEAN_INPUT: ${{ inputs.boolean_input }}
     steps:
       - name: Check value
         run: |
-          echo "GITHUB_EVEMT_BOOLEAN_INPUT is: $GITHUB_EVEMT_BOOLEAN_INPUT"
+          echo "GITHUB_EVENT_BOOLEAN_INPUT is: $GITHUB_EVENT_BOOLEAN_INPUT"
           echo "INPUTS_BOOLEAN_INPUT is: $INPUTS_BOOLEAN_INPUT"
 
       - name: Run if github.event.inputs.boolean_input
