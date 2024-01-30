@@ -1,0 +1,37 @@
+name: workflow dispatch boolean inputs
+
+on:
+  workflow_dispatch:
+    inputs:
+      boolean_input:
+        description: 'A boolean input'
+        type: boolean
+        required: true
+        default: true
+
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      BOOLEAN_INPUT: ${{ github.event.inputs.boolean_input }}
+    steps:
+      - name: Check value
+        run: |
+          echo "The value is: $BOOLEAN_INPUT"
+
+      - name: Run if boolean_input
+        if: ${{ github.event.inputs.boolean_input }}
+        run: |
+          echo "github.event.inputs.boolean_input is true"
+
+      - name: Don't run if boolean_input
+        if: ${{ ! github.event.inputs.boolean_input }}
+        run: |
+          echo "github.event.inputs.boolean_input is true"
+
+      - name: Run if boolean_input == 'true'
+        if: ${{ github.event.inputs.boolean_input == 'true' }}
+        run: |
+          echo "github.event.inputs.boolean_input == 'true' is true"
+          
