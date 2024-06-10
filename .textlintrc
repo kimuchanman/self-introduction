@@ -2,7 +2,7 @@
   "rules": {
     "preset-ja-technical-writing": {
       "sentence-length": {
-        "max": 120,
+        "max": 240,
         "severity": "warning"
       },
       "max-comma": {
@@ -33,6 +33,21 @@
       "no-doubled-conjunction": true,
       "no-doubled-joshi": {
         "min_interval": 1,
+        "strict": false,
+        "allow": ["の","や","も","が"],
+        "separatorCharacters": [
+          ".",
+          "．",
+          "。",
+          "?",
+          "!",
+          "？",
+          "！"
+        ],
+        "commaCharacters": [
+          "、",
+          "，"
+        ],
         "severity": "warning"
       },
       "no-nfd": true,
