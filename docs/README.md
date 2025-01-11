@@ -63,10 +63,19 @@
 ### フレームワーク・その他
 
 - CakePHP / Ruby on Rails / Laravel / Vue.js(Nuxt.js) / React(Next.js) / Spring Boot / NestJS
-- PHPUnit / JUnit / RSpec / Jest / Selenium WebDriver や Cypress を用いた E2E テスト
-- GraphQL (Apollo)
-- MySQL / PostgresQL
+- PHPUnit / JUnit / RSpec / Jest / reg-cli / textlint / Selenium WebDriver や Cypress を用いた E2E テスト
+- Storybook / Chromatic
+- Figma / yagisan-reports
+- GraphQL (Apollo) / REST API
+- Docker / Docker Compose
+- GitHub Actions
+- Auth0
+- LaunchDarkly
+- Terraform
+- LocalStack
+- MySQL / PostgresQL / DynamoDB / Redis / OpenSearch / Neon
 - AWS は Solution Architect Associate(SAA) を取得しています。基本的なサービスはだいたい業務や個人で触っています。レアなスキルですと、 AWS OpenSearch Service の VPC 内とパブリックドメイン両方のインフラ環境の構築とドキュメント/インデックス構築の経験があります
+- Miro / Jira / Notion
 
 ---
 
