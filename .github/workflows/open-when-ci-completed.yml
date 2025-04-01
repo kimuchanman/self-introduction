@@ -30,7 +30,7 @@ jobs:
         id: get_labels
         run: |
           LABEL_NAME="auto-R4R"
-          if [[ ${{ steps.get_pull_request.outputs.labels }} == *"$LABEL_NAME"* ]]; then
+          if [[ '${{ steps.get_pull_request.outputs.labels }}' == *"$LABEL_NAME"* ]]; then
             echo "Label $LABEL_NAME found"
             echo "CONTINUE=true" >> $GITHUB_OUTPUT
           else
@@ -56,4 +56,4 @@ jobs:
         if: ${{ steps.get_labels.outputs.CONTINUE == 'true'
           && steps.get_pull_request.outputs.draft != 'false'
           && (steps.get_checks_status.outputs.checks.length == 0 || steps.get_checks_status.outputs.checks.*.status == 'completed') }}
-        run: gh pr ready ${{ steps.get_pull_request.outputs.number }} -R ${{ github.repository }}  
+        run: gh pr ready ${{ steps.get_pull_request.outputs.number }} -R ${{ github.repository }}

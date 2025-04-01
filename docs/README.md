@@ -94,8 +94,8 @@
 
 - 各種オーナーシップの明確化
 - Permission Toggle の導入および Feature Flag 諸々のエンハンス目的での LaunchDarkly の導入
-- Chromatic のコストが無視できないレベルになってきたため、VRT の部分を Storycap + reg-cli に移行。Storybook のホスティングの部分を内製化した Private GitHub Pages や S3 ホスティングを基にしたシステムへ移行。
-  - 1000枚程度の Modal など動きのある画面や yagisan-reports をつかった PDF レンダリングを含む画面の VRT と Storybook の配信を5分程度で実現するために AWS CodeBuild の  Large Runner を用いたり各種パラメータチューニングやワークフローをチューニングしました。
+- Chromatic のコストが無視できないレベルになってきたため、VRT の部分を Storycap + reg-cli に移行。Storybook のホスティングの部分を内製化した Private GitHub Pages や S3 ホスティングを基にしたシステムへ移行
+  - 1000 枚程度の Modal など動きのある画面や yagisan-reports をつかった PDF レンダリングを含む画面の VRT と Storybook の配信を 5 分程度で実現するために AWS CodeBuild の  Large Runner を用いたり各種パラメータチューニングやワークフローをチューニングしました
 
 #### 2024/04 〜 2024/09
 
