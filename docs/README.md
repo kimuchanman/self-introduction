@@ -92,11 +92,11 @@
 
 カイポケリニューアルの開発推進チームを発足&所属し、チームトポロジー文脈で言うところの platform engineering に近い立ち位置で、Stream-aligned チームの「開発効率」と「開発者の体験（Developer Experience, DX）」を向上することを目指して活動しています。
 
-主要な取り組み:
+以下が主要な取り組みです。
 
   - VRT（Visual Regression Testing）基盤の大幅刷新
     - Chromatic のコスト課題を解決するため、Storycap + reg-cli ベースの VRT システムに移行
-    - 1000枚程度の Modal など動きのある画面や yagisan-reports を使った PDF レンダリングを含む画面の VRT と Storybook の配信を 5 分程度で実現
+    - 1000 枚程度の Modal など動きのある画面や yagisan-reports を使った PDF レンダリングを含む画面の VRT と Storybook の配信を 5 分程度で実現
     - AWS CodeBuild の Large Runner を活用したパフォーマンスチューニング
     - VRT ワークフローの Composite Action 化による CI/CD の効率化
     - これについて書いたblog: https://tech.bm-sms.co.jp/entry/2025/05/13/110000
@@ -107,12 +107,12 @@
     - GitHub Actions の Composite Action を活用した DRY 原則の適用
     - VRT ワークフローの共通化により保守性とパフォーマンスを向上
     - Node.js 22 系への対応とビルドパフォーマンスの改善
-  - コード品質とDX向上
+  - コード品質と DX 向上
     - 循環依存の自動検出・管理システムの運用改善
     - 日本語ファイル名の英語化によるプロジェクトの国際化対応
     - OSS ライセンス管理の自動化
   - pnpm workspace 導入による frontend のアプリ/パッケージ分割
-    - パッケージ/アプリケーション分離に伴う各種設定やCI/CDの設計・実装
+    - パッケージ/アプリケーション分離に伴う各種設定や CI/CD の設計・実装
     - pnpm v10 upgrade
     - pnpm catalogs での one version rule の実現
 
