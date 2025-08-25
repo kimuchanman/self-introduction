@@ -94,12 +94,12 @@
 
 以下が主要な取り組みです。
 
-  - VRT（Visual Regression Testing）基盤の大幅刷新
+  - Visual Regression Testing（VRT）基盤の大幅刷新
     - Chromatic のコスト課題を解決するため、Storycap + reg-cli ベースの VRT システムに移行
     - 1000 枚程度の Modal など動きのある画面や yagisan-reports を使った PDF レンダリングを含む画面の VRT と Storybook の配信を 5 分程度で実現
     - AWS CodeBuild の Large Runner を活用したパフォーマンスチューニング
     - VRT ワークフローの Composite Action 化による CI/CD の効率化
-    - これについて書いたblog: https://tech.bm-sms.co.jp/entry/2025/05/13/110000
+    - これについて書いた blog: https://tech.bm-sms.co.jp/entry/2025/05/13/110000
   - Feature Flag 基盤の強化
     - Permission Toggle の導入および LaunchDarkly の組織全体への展開
     - 機能のロールアウト戦略とリスク管理の仕組み構築
@@ -116,14 +116,14 @@
     - pnpm v10 upgrade
     - pnpm catalogs での one version rule の実現
 
-技術スタック:
+以下がおもに利用した技術スタックです。
   - VRT: Storycap + reg-cli（Chromatic から移行）
   - Testing: Vitest（Jest から移行推進中）
   - Feature Flag: LaunchDarkly
   - CI/CD: GitHub Actions
   - frontend: Next.js, pnpm, Turborepo
 
-これらの活動により、開発チーム全体の生産性向上とコスト削減を同時に実現し、月次数十万円規模のインフラコスト削減に貢献しました。
+これらの活動により、開発チーム全体の生産性向上とコスト削減を同時に実現し、月次で数10万円規模のインフラコスト削減に貢献しました。
   
 #### 2024/04 〜 2024/09
 
