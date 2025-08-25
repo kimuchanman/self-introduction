@@ -89,14 +89,42 @@
 
 ##### 開発推進チーム
 
+
 カイポケリニューアルの開発推進チームを発足&所属し、チームトポロジー文脈で言うところの platform engineering に近い立ち位置で、Stream-aligned チームの「開発効率」と「開発者の体験（Developer Experience, DX）」を向上することを目指して活動しています。
-以下のような活動をやっていってます。
 
-- 各種オーナーシップの明確化
-- Permission Toggle の導入および Feature Flag 諸々のエンハンス目的での LaunchDarkly の導入
-- Chromatic のコストが無視できないレベルになってきたため、VRT の部分を Storycap + reg-cli に移行。Storybook のホスティングの部分を内製化した Private GitHub Pages や S3 ホスティングを基にしたシステムへ移行
-  - 1000 枚程度の Modal など動きのある画面や yagisan-reports をつかった PDF レンダリングを含む画面の VRT と Storybook の配信を 5 分程度で実現するために AWS CodeBuild の Large Runner を用いたり各種パラメータチューニングやワークフローをチューニングしました
+以下が主要な取り組みです。
 
+  - Visual Regression Testing（VRT）基盤の大幅刷新
+    - Chromatic のコスト課題を解決するため、Storycap + reg-cli ベースの VRT システムに移行
+    - 1000 枚程度の Modal など動きのある画面や yagisan-reports を使った PDF レンダリングを含む画面の VRT と Storybook の配信を 5 分程度で実現
+    - AWS CodeBuild の Large Runner を活用したパフォーマンスチューニング
+    - VRT ワークフローの Composite Action 化による CI/CD の効率化
+    - これについて書いた blog: https://tech.bm-sms.co.jp/entry/2025/05/13/110000
+  - Feature Flag 基盤の強化
+    - Permission Toggle の導入および LaunchDarkly の組織全体への展開
+    - 機能のロールアウト戦略とリスク管理の仕組み構築
+  - CI/CD ワークフローの最適化
+    - GitHub Actions の Composite Action を活用した DRY 原則の適用
+    - VRT ワークフローの共通化により保守性とパフォーマンスを向上
+    - Node.js 22 系への対応とビルドパフォーマンスの改善
+  - コード品質と DX 向上
+    - 循環依存の自動検出・管理システムの運用改善
+    - 日本語ファイル名の英語化によるプロジェクトの国際化対応
+    - OSS ライセンス管理の自動化
+  - pnpm workspace 導入による frontend のアプリ/パッケージ分割
+    - パッケージ/アプリケーション分離に伴う各種設定や CI/CD の設計・実装
+    - pnpm v10 upgrade
+    - pnpm catalogs での one version rule の実現
+
+以下がおもに利用した技術スタックです。
+  - VRT: Storycap + reg-cli（Chromatic から移行）
+  - Testing: Vitest（Jest から移行推進中）
+  - Feature Flag: LaunchDarkly
+  - CI/CD: GitHub Actions
+  - frontend: Next.js, pnpm, Turborepo
+
+これらの活動により、開発チーム全体の生産性向上とコスト削減を同時に実現し、月次で数十万円規模のインフラコスト削減に貢献しました。
+  
 #### 2024/04 〜 2024/09
 
 居宅支援チームに所属しつつ、技術戦略チームの発足に伴い、技術戦略チームにも所属しています（居宅支援チームでの開発も引き続き行っています）。
