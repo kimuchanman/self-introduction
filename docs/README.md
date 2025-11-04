@@ -98,7 +98,10 @@
     - Chromatic のコスト課題を解決するため、Storycap + reg-cli ベースの VRT システムに移行
     - 1000 枚程度の Modal など動きのある画面や yagisan-reports を使った PDF レンダリングを含む画面の VRT と Storybook の配信を 5 分程度で実現
     - AWS CodeBuild の Large Runner を活用したパフォーマンスチューニング
-    - VRT ワークフローの Composite Action 化による CI/CD の効率化
+    - VRT ワークフローの Composite Action 化による CI/CD の効率化と保守性向上
+    - Datadog を活用した VRT メトリクスの可視化と監視基盤の構築
+    - S3 + CloudFront による Storybook 配信基盤への移行で安定性向上
+    - Flaky テストの自動検知・レポート機能の実装
     - これについて書いた blog: https://tech.bm-sms.co.jp/entry/2025/05/13/110000
   - Feature Flag 基盤の強化
     - Permission Toggle の導入および LaunchDarkly の組織全体への展開
@@ -107,23 +110,47 @@
     - GitHub Actions の Composite Action を活用した DRY 原則の適用
     - VRT ワークフローの共通化により保守性とパフォーマンスを向上
     - Node.js 22 系への対応とビルドパフォーマンスの改善
+    - CI ランナーの最適化によるコスト削減（Ubuntu-slim への移行など）
+    - Prettier 自動修正・コミット機能の実装による開発フローの効率化
+    - Renovate の設定最適化と週次自動更新ワークフローの構築
   - コード品質と DX 向上
     - 循環依存の自動検出・管理システムの運用改善
     - 日本語ファイル名の英語化によるプロジェクトの国際化対応
     - OSS ライセンス管理の自動化
-  - pnpm workspace 導入による frontend のアプリ/パッケージ分割
+    - ESLint によるクロスサービスインポート制限の導入（ドメイン境界の明確化）
+    - 絶対パスインポート禁止ルールによるコードの保守性向上
+  - pnpm workspace 導入による frontend のモノレポ最適化
     - パッケージ/アプリケーション分離に伴う各種設定や CI/CD の設計・実装
-    - pnpm v10 upgrade
-    - pnpm catalogs での one version rule の実現
+    - pnpm v10 への major upgrade と段階的な移行戦略の実行
+    - pnpm catalogs での one version rule の実現と strict mode 化
+    - 共通パッケージの構築と段階的なコンポーネント移行（500+ ファイル）
+    - 複数ミニアプリの分離による開発効率とデプロイ速度の向上
+    - カタログモードの strict 化による依存関係の厳密な管理
+  - アーキテクチャとナビゲーション基盤の改善
+    - ミニアプリ間のソフト/ハードナビゲーションを実現するルーティングマネージャーの設計・実装
+    - 認証・認可フローのリファクタリングによるテスタビリティと保守性の向上
+    - テストダブル（Mock/Stub）の適切な活用によるテスト品質の改善
+  - AI/自動化ツールの導入と生産性向上
+    - Claude AI を活用したコードレビュアクフローの構築
+    - 技術ドキュメント自動更新ワークフローの実装
+    - Model Context Protocol（MCP）サーバーの開発・運用による開発体験の向上
+    - Figma デザインデータの自動取得・管理システムの構築
+  - その他の開発基盤改善
+    - Datadog ソースマップアップロード処理の自動化と DRY 化
+    - textlint による技術ドキュメントの品質向上と ADR 運用の推進
+    - Storybook の改善と複数パッケージ間の統合
+    - 複数アプリケーションの一括ビルド・プレビュー機能の実装
 
 以下がおもに利用した技術スタックです。
   - VRT: Storycap + reg-cli（Chromatic から移行）
   - Testing: Vitest（Jest から移行推進中）
   - Feature Flag: LaunchDarkly
   - CI/CD: GitHub Actions
-  - frontend: Next.js, pnpm, Turborepo
+  - frontend: Next.js, pnpm v10, Turborepo
+  - 監視： Datadog
+  - AI: Claude Code, MCP
 
-これらの活動により、開発チーム全体の生産性向上とコスト削減を同時に実現し、月次で数十万円規模のインフラコスト削減に貢献しました。
+これらの活動により、開発チーム全体の生産性向上とコスト削減を同時に実現しました。月次で数十万円規模のインフラコスト削減に貢献しました。また、VRT の安定性向上により開発者の待ち時間を大幅に削減し、CI/CD パイプラインの信頼性を向上させました。
   
 #### 2024/04 〜 2024/09
 
