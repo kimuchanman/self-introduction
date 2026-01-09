@@ -102,6 +102,9 @@
     - Datadog を活用した VRT メトリクスの可視化と監視基盤の構築
     - S3 + CloudFront による Storybook 配信基盤への移行で安定性向上
     - Flaky テストの自動検知・レポート機能の実装
+    - Playwright ベースの VRT への移行によるスクリーンショット取得の高速化と安定性向上
+    - VRT スクリプトのルートディレクトリ統合による保守性の向上
+    - デザインサンドボックス（Ladle）の S3 アップロードと PR プレビュー機能の実装
     - これについて書いた blog: https://tech.bm-sms.co.jp/entry/2025/05/13/110000
   - Feature Flag 基盤の強化
     - Permission Toggle の導入および LaunchDarkly の組織全体への展開
@@ -128,27 +131,41 @@
     - カタログモードの strict 化による依存関係の厳密な管理
   - アーキテクチャとナビゲーション基盤の改善
     - ミニアプリ間のソフト/ハードナビゲーションを実現するルーティングマネージャーの設計・実装
+    - navigation パッケージの新規開発による型安全なルーティング基盤の構築
+    - pathpida からの移行と静的パス生成機能の実装
+    - アプリ間遷移の自動判定機能（automatic navigation type）の導入
     - 認証・認可フローのリファクタリングによるテスタビリティと保守性の向上
     - テストダブル（Mock/Stub）の適切な活用によるテスト品質の改善
+  - デザインシステムとコンポーネント基盤の強化
+    - Link/Flex コンポーネントの次世代 UI ライブラリへの移行推進
+    - asChild パターンの導入によるコンポーネントの柔軟性向上
+    - recipe パターンを活用したスタイル定義の最適化
+    - 複数アプリケーションへのコンポーネント移行とテスト整備
   - AI/自動化ツールの導入と生産性向上
     - Claude AI を活用したコードレビュアクフローの構築
     - 技術ドキュメント自動更新ワークフローの実装
     - Model Context Protocol（MCP）サーバーの開発・運用による開発体験の向上
+    - Figma MCP サーバーの GitHub Packages 公開による社内配布の効率化
     - Figma デザインデータの自動取得・管理システムの構築
+    - Claude Code 用カスタムコマンドの開発（スプリントレポート生成、議事録連携など）
   - その他の開発基盤改善
     - Datadog ソースマップアップロード処理の自動化と DRY 化
     - textlint による技術ドキュメントの品質向上と ADR 運用の推進
     - Storybook の改善と複数パッケージ間の統合
     - 複数アプリケーションの一括ビルド・プレビュー機能の実装
+    - DateInput コンポーネントへの日付貼り付け機能追加による UX 向上
+    - テストフレームワークの Jest から Vitest への移行推進
+    - CODEOWNERS の整備によるレビュー効率化
 
 以下がおもに利用した技術スタックです。
-  - VRT: Storycap + reg-cli（Chromatic から移行）
+  - VRT: Playwright + reg-cli（Chromatic → Storycap → Playwright と移行）
   - Testing: Vitest（Jest から移行推進中）
   - Feature Flag: LaunchDarkly
-  - CI/CD: GitHub Actions
+  - CI/CD: GitHub Actions（Composite Action による共通化）
   - frontend: Next.js, pnpm v10, Turborepo
   - 監視： Datadog
-  - AI: Claude Code, MCP
+  - AI: Claude Code, MCP（Figma MCP など）
+  - ナビゲーション： navigation パッケージ（自社開発）
 
 これらの活動により、開発チーム全体の生産性向上とコスト削減を同時に実現しました。月次で数十万円規模のインフラコスト削減に貢献しました。また、VRT の安定性向上により開発者の待ち時間を大幅に削減し、CI/CD パイプラインの信頼性を向上させました。
   
