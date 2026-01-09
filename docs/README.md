@@ -79,7 +79,7 @@
 - LaunchDarkly
 - Terraform
 - LocalStack
-- MySQL / PostgresQL / DynamoDB / Redis / OpenSearch / Neon
+- MySQL / PostgreSQL / DynamoDB / Redis / OpenSearch / Neon
 - AWS は Solution Architect Associate(SAA) を取得しています。基本的なサービスはだいたい業務や個人で触っています。レアなスキルですと、 AWS OpenSearch Service の VPC 内とパブリックドメイン両方のインフラ環境の構築とドキュメント/インデックス構築の経験があります
 - Miro / Jira / Notion
 
