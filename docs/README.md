@@ -137,7 +137,7 @@
     - OSS ライセンス管理の自動化
     - ESLint によるクロスサービスインポート制限の導入（ドメイン境界の明確化）
     - 絶対パスインポート禁止ルールによるコードの保守性向上
-    - oxlint の段階的移行戦略の設計・実装（namedCatalog パターンによる破壊的変更の段階的適用）
+    - oxlint の段階的な移行戦略の設計・実装（namedCatalog パターンによる破壊的変更の段階的適用）
     - TypeScript ネイティブコンパイラ（tsgo）への早期対応と型チェックの高速化検証
   - pnpm workspace 導入による frontend のモノレポ最適化
     - パッケージ/アプリケーション分離に伴う各種設定や CI/CD の設計・実装
@@ -168,7 +168,7 @@
     - Figma デザインデータの自動取得・管理システムの構築
     - Claude Code 用カスタムコマンドの開発（スプリントレポート生成、議事録連携など）
     - Claude Code カスタムコマンドの大幅拡充（レビュー修正自動化、ガイドラインレビュー、Renovate PR 一括処理、レトロスペクティブレポート生成、ADR レビュー、ナビゲーション移行支援など）
-    - AI コーディングルールの体系的管理基盤の構築（conditional rules による文脈依存ルールの整備）
+    - AI コーディングルールの体系的な管理基盤の構築（conditional rules による文脈依存ルールの整備）
     - GitHub Copilot Code Review 用ガイドラインの整備と自動レビュー運用の導入
   - その他の開発基盤改善
     - Datadog ソースマップアップロード処理の自動化と DRY 化
@@ -190,9 +190,9 @@
   - frontend: Next.js, pnpm v10, Turborepo
   - 監視： Datadog
   - AI: Claude Code, GitHub Copilot, MCP（Figma MCP など）
-  - Linting: oxlint（ESLint からの段階的移行）
-  - 開発環境: Nix
-  - ナビゲーション: navigation パッケージ（自社開発）
+  - Linting： oxlint（ESLint からの段階的移行）
+  - 開発環境： Nix
+  - ナビゲーション： navigation パッケージ（自社開発）
 
 これらの活動により、開発チーム全体の生産性向上とコスト削減を同時に実現しました。月次で数十万円規模のインフラコスト削減に貢献しました。また、VRT の安定性向上により開発者の待ち時間を大幅に削減し、CI/CD パイプラインの信頼性を向上させました。
   
