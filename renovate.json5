@@ -1,24 +1,29 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'config:recommended',
   ],
-  "timezone": "Asia/Tokyo",
-  "schedule": ["after 6am on monday", "before 9am on monday"],
-  "lockFileMaintenance": {
-    "enabled": true,
-    "automerge": true,
-    "schedule": ["before 5pm on saturday"]
+  timezone: 'Asia/Tokyo',
+  schedule: [
+    'after 6am on monday',
+    'before 9am on monday',
+  ],
+  lockFileMaintenance: {
+    enabled: true,
+    automerge: true,
+    schedule: [
+      'before 5pm on saturday',
+    ],
   },
-  "minor": {
-    "automerge": true
+  minor: {
+    automerge: true,
   },
-  "patch": {
-    "automerge": true
+  patch: {
+    automerge: true,
   },
-  "platformAutomerge": true,
-  "ignoreTests": true,
-  "includePaths": [
-    ".github/workflows/**/*",
-  ]
+  platformAutomerge: true,
+  ignoreTests: true,
+  includePaths: [
+    '.github/workflows/**/*',
+  ],
 }
