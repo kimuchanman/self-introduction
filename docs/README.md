@@ -188,11 +188,11 @@
   - Feature Flag: LaunchDarkly
   - CI/CD: GitHub Actions（Composite Action による共通化）
   - frontend: Next.js, pnpm v10, Turborepo
-  - 監視： Datadog
+  - 監視: Datadog
   - AI: Claude Code, GitHub Copilot, MCP（Figma MCP など）
-  - Linting： oxlint（ESLint からの段階的移行）
-  - 開発環境： Nix
-  - ナビゲーション： navigation パッケージ（自社開発）
+  - Linting: oxlint（ESLint からの段階的移行）
+  - 開発環境: Nix
+  - ナビゲーション: navigation パッケージ（自社開発）
 
 これらの活動により、開発チーム全体の生産性向上とコスト削減を同時に実現しました。月次で数十万円規模のインフラコスト削減に貢献しました。また、VRT の安定性向上により開発者の待ち時間を大幅に削減し、CI/CD パイプラインの信頼性を向上させました。
   
