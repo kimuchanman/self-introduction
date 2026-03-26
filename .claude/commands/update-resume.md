@@ -19,13 +19,15 @@ If no arguments are provided, ask the user which repositories to collect from.
 
 For each repository provided, collect:
 - All commits by the current git user (use `git config user.name`)
-- All PRs authored by the current user (use `gh pr list --author=@me --state=all --limit=100`)
+- All PRs authored by the current user (use `gh pr list --author=@me --state=all --limit=1000`)
 
 Use the following commands for each repository:
 ```bash
 cd <REPO_PATH> && git log --author="$(git config user.name)" --oneline --no-merges
-cd <REPO_PATH> && gh pr list --author=@me --state=all --limit=100 --json number,title,state,mergedAt,createdAt,url
+cd <REPO_PATH> && gh pr list --author=@me --state=all --limit=1000 --json number,title,state,mergedAt,createdAt,url
 ```
+
+Note: `--limit=1000` ensures all PRs are collected. If a repository has more than 1000 PRs, increase the limit accordingly.
 
 ## Update Guidelines
 
