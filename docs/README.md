@@ -100,98 +100,55 @@
 
 以下が主要な取り組みです。
 
-  - Visual Regression Testing（VRT）基盤の大幅刷新
-    - Chromatic のコスト課題を解決するため、Storycap + reg-cli ベースの VRT システムに移行
-    - 1000 枚程度の Modal など動きのある画面や yagisan-reports を使った PDF レンダリングを含む画面の VRT と Storybook の配信を 5 分程度で実現
-    - AWS CodeBuild の Large Runner を活用したパフォーマンスチューニング
-    - VRT ワークフローの Composite Action 化による CI/CD の効率化と保守性向上
-    - Datadog を活用した VRT メトリクスの可視化と監視基盤の構築
-    - S3 + CloudFront による Storybook 配信基盤への移行で安定性向上
-    - Flaky テストの自動検知・レポート機能の実装
-    - Playwright ベースの VRT への移行によるスクリーンショット取得の高速化と安定性向上
-    - VRT スクリプトのルートディレクトリ統合による保守性の向上
-    - デザインサンドボックス（Ladle）の S3 アップロードと PR プレビュー機能の実装
-    - Storybook の全アプリケーション Vite ビルダー移行によるビルド・VRT の高速化
-    - ローカル VRT 実行コマンドの整備による開発者の手元確認フロー改善
-    - VRT 内製化に関する ADR の策定と意思決定の透明化
+  - Visual Regression Testing（VRT）基盤の内製化と大幅刷新
+    - SaaS（Chromatic）のコスト課題を解決するため、OSS ベースの VRT システムを設計・構築し月次コストを大幅削減
+    - 1000 枚超のスクリーンショット取得と Storybook 配信を約 5 分で完了する高速パイプラインを実現
+    - Chromatic → Storycap → Playwright と段階的に移行し、安定性と速度を継続的に改善
+    - Datadog を活用した VRT メトリクスの可視化と Flaky テストの自動検知基盤を構築
+    - Storybook 10 対応を含む継続的なアップグレード戦略の推進
     - これについて書いた blog: [VRT内製化についてのブログ](https://tech.bm-sms.co.jp/entry/2025/05/13/110000)
-  - Feature Flag 基盤の強化
-    - Permission Toggle の導入および LaunchDarkly の組織全体への展開
-    - 機能のロールアウト戦略とリスク管理の仕組み構築
-  - CI/CD ワークフローの最適化
-    - GitHub Actions の Composite Action を活用した DRY 原則の適用
-    - VRT ワークフローの共通化により保守性とパフォーマンスを向上
-    - Node.js 22 系への対応とビルドパフォーマンスの改善
-    - CI ランナーの最適化によるコスト削減（Ubuntu-slim への移行など）
-    - Prettier 自動修正・コミット機能の実装による開発フローの効率化
-    - Renovate の設定最適化と週次自動更新ワークフローの構築
-    - PR テストの動的シャーディング実装（変更ファイル数ベースでの並列分割の最適化）
-    - 共通パッケージ変更時の全アプリフルテスト自動トリガーの仕組み構築
-    - ビルドワークフローの affected 対応による不要ビルドの削減
-    - デイリーデプロイへのテストゲート導入による品質担保
-    - Nix を活用した開発環境構築の CI ワークフロー整備
-    - テストの CPU 競合による Flaky テストの原因調査と解消
-  - コード品質と DX 向上
-    - 循環依存の自動検出・管理システムの運用改善
-    - 日本語ファイル名の英語化によるプロジェクトの国際化対応
-    - OSS ライセンス管理の自動化
-    - ESLint によるクロスサービスインポート制限の導入（ドメイン境界の明確化）
-    - 絶対パスインポート禁止ルールによるコードの保守性向上
-    - oxlint の段階的な移行戦略の設計・実装（namedCatalog パターンによる破壊的変更の段階的適用）
-    - TypeScript ネイティブコンパイラ（tsgo）への早期対応と型チェックの高速化検証
-  - pnpm workspace 導入による frontend のモノレポ最適化
-    - パッケージ/アプリケーション分離に伴う各種設定や CI/CD の設計・実装
-    - pnpm v10 への major upgrade と段階的な移行戦略の実行
-    - pnpm catalogs での one version rule の実現と strict mode 化
-    - 共通パッケージの構築と段階的なコンポーネント移行（500+ ファイル）
-    - 複数ミニアプリの分離による開発効率とデプロイ速度の向上
-    - カタログモードの strict 化による依存関係の厳密な管理
-    - .npmrc の設定を pnpm-workspace.yaml に統合し SSoT（Single Source of Truth）化
-    - 開発時の共通パッケージ変更反映を改善するホットリロード同期パッケージの開発
-  - アーキテクチャとナビゲーション基盤の改善
-    - ミニアプリ間のソフト/ハードナビゲーションを実現するルーティングマネージャーの設計・実装
-    - navigation パッケージの新規開発による型安全なルーティング基盤の構築
-    - pathpida からの移行と静的パス生成機能の実装
-    - アプリ間遷移の自動判定機能（automatic navigation type）の導入
+  - フロントエンドアーキテクチャの大規模移行
+    - Next.js Pages Router から Vite + TanStack Router への段階的移行を設計・推進（複数アプリで実施）
+    - navigation パッケージを自社開発し、複数ミニアプリ間の型安全なルーティング基盤を構築
+    - Next.js 固有の API（next/router, next/image 等）への直接依存を lint ルールで禁止し、フレームワーク非依存の抽象化レイヤーを設計
+    - TanStack Router 用のルート自動生成・アダプター拡張を設計・実装し、移行コストを最小化
     - 認証・認可フローのリファクタリングによるテスタビリティと保守性の向上
-    - テストダブル（Mock/Stub）の適切な活用によるテスト品質の改善
-  - デザインシステムとコンポーネント基盤の強化
-    - Link/Flex コンポーネントの次世代 UI ライブラリへの移行推進
-    - asChild パターンの導入によるコンポーネントの柔軟性向上
-    - recipe パターンを活用したスタイル定義の最適化
-    - 複数アプリケーションへのコンポーネント移行とテスト整備
-  - AI/自動化ツールの導入と生産性向上
-    - Claude AI を活用したコードレビュアクフローの構築
-    - 技術ドキュメント自動更新ワークフローの実装
+  - CI/CD ワークフローの最適化とコスト削減
+    - CI ランナーの ARM 移行・ステップ並列実行・affected ビルドなど複数施策でインフラコストを月次数十万円規模削減
+    - PR テストの動的シャーディング（変更ファイル数ベースの並列分割最適化）を実装
+    - デイリーデプロイへのテストゲート導入による品質担保の自動化
+    - Renovate CI 失敗時の自動チケット作成・PR クローズなど、依存更新の運用を自動化
+  - モノレポ基盤の設計と最適化
+    - pnpm workspace（v10 → v11）を活用したフロントエンドモノレポの設計・構築
+    - 共通パッケージの構築と段階的なコンポーネント移行（500+ ファイル）
+    - pnpm catalogs による one version rule の実現と依存関係の厳密な管理
+    - 複数ミニアプリの分離による開発効率とデプロイ速度の向上
+  - コード品質と DX 向上
+    - oxlint への段階的移行戦略の設計・実装（namedCatalog パターンによる破壊的変更の段階的適用）
+    - TypeScript ネイティブコンパイラ（tsgo）への早期対応と型チェックの高速化検証
+    - ESLint によるクロスサービスインポート制限の導入でドメイン境界を明確化
+    - Jest から Vitest への全面移行完了（全アプリケーション・全パッケージ対象）
+  - Feature Flag 基盤の強化
+    - LaunchDarkly の組織全体への展開とロールアウト戦略・リスク管理の仕組み構築
+  - AI/自動化ツールの導入と開発生産性向上
+    - Claude Code Skills の設計・拡充（レビュー自動化、Renovate PR 一括処理、ADR レビュー、Copilot 連携など 10+ のスキルを開発）
     - Model Context Protocol（MCP）サーバーの開発・運用による開発体験の向上
-    - Figma MCP サーバーの GitHub Packages 公開による社内配布の効率化
-    - Figma デザインデータの自動取得・管理システムの構築
-    - Claude Code 用カスタムコマンドの開発（スプリントレポート生成、議事録連携など）
-    - Claude Code カスタムコマンドの大幅拡充（レビュー修正自動化、ガイドラインレビュー、Renovate PR 一括処理、レトロスペクティブレポート生成、ADR レビュー、ナビゲーション移行支援など）
-    - AI コーディングルールの体系的な管理基盤の構築（conditional rules による文脈依存ルールの整備）
     - GitHub Copilot Code Review 用ガイドラインの整備と自動レビュー運用の導入
-  - その他の開発基盤改善
-    - Datadog ソースマップアップロード処理の自動化と DRY 化
-    - textlint による技術ドキュメントの品質向上と ADR 運用の推進
-    - Storybook の改善と複数パッケージ間の統合
-    - 複数アプリケーションの一括ビルド・プレビュー機能の実装
-    - DateInput コンポーネントへの日付貼り付け機能追加による UX 向上
-    - テストフレームワークの Jest から Vitest への全面移行（UI ライブラリ・ユーティリティパッケージ含む）
+    - AI コーディングルールの体系的な管理基盤の構築（文脈依存ルールの整備）
+  - テスト・品質基盤の改善
     - フルテストと差分テストの分離による開発フィードバックループの高速化
-    - CODEOWNERS の整備によるレビュー効率化
-    - ADR の継続的な策定と運用（ライブラリロックインレベル指針、VRT 内製化方針など）
-    - アプリケーション間の内部依存関係の可視化（Mermaid 図による自動生成）
+    - ADR の導入・策定と運用推進による意思決定の透明化
+    - Datadog ソースマップアップロードの自動化、CODEOWNERS の整備などの DevOps 改善
 
 以下がおもに利用した技術スタックです。
-  - VRT: Playwright + reg-cli（Chromatic → Storycap → Playwright と移行）
-  - Testing: Vitest（Jest から移行推進中）
+  - VRT: Playwright + reg-cli, Storybook 10
+  - Testing: Vitest
   - Feature Flag: LaunchDarkly
-  - CI/CD: GitHub Actions（Composite Action による共通化）
-  - frontend: Next.js, pnpm v10, Turborepo
+  - CI/CD: GitHub Actions（ARM ランナー、動的シャーディング）
+  - frontend: Vite + TanStack Router / Next.js, pnpm v11, Turborepo
   - 監視: Datadog
-  - AI: Claude Code, GitHub Copilot, MCP（Figma MCP など）
+  - AI: Claude Code（Skills）, GitHub Copilot（Code Review）, MCP
   - Linting: oxlint（ESLint からの段階的移行）
-  - 開発環境: Nix
   - ナビゲーション: navigation パッケージ（自社開発）
 
 これらの活動により、開発チーム全体の生産性向上とコスト削減を同時に実現しました。月次で数十万円規模のインフラコスト削減に貢献しました。また、VRT の安定性向上により開発者の待ち時間を大幅に削減し、CI/CD パイプラインの信頼性を向上させました。
