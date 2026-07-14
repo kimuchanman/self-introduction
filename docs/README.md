@@ -85,7 +85,7 @@
 - Datadog
 - MySQL / PostgreSQL / DynamoDB / Redis / OpenSearch / Neon
 - AWS は Solution Architect Associate(SAA) を取得しています。基本的なサービスはだいたい業務や個人で触っています。レアなスキルですと、 AWS OpenSearch Service の VPC 内とパブリックドメイン両方のインフラ環境の構築とドキュメント/インデックス構築の経験があります
-- Claude Code（Skills 開発・MCP サーバー開発）/ Codex / GitHub Copilot
+- Claude Code（Skills 開発・MCP サーバー開発・ハーネスの開発/運用）/ Codex / GitHub Copilot
 - Miro / Jira / Notion
 
 ---
@@ -138,6 +138,7 @@
   - AI/自動化ツールの導入と開発の生産性向上
     - Claude Code Skills の設計・拡充（レビュー自動化、Renovate PR 一括処理、ADR レビュー、Copilot 連携など 10+ のスキルを開発）
     - Model Context Protocol（MCP）サーバーの開発・運用による開発体験の向上
+    - AI コーディングエージェントのハーネスの開発・運用
     - GitHub Copilot Code Review 用ガイドラインの整備と自動レビュー運用の導入
     - AI コーディングルールの体系的な管理基盤の構築（文脈依存ルールの整備）
   - テスト・品質基盤の改善
