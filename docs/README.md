@@ -224,9 +224,7 @@ API ドキュメントにはたまに正しいことが書かれていなかっ�
     - [BASEの顧客管理はどのようにして実現されたか](https://devblog.thebase.in/entry/2021/12/02/110000)
 - また、こちらの YouTube にてインタビューしていただきました
     - [https://youtu.be/JE9bncvlc8c](https://youtu.be/JE9bncvlc8c)
-    - <iframe width="560" height="315" src="https://www.youtube.com/embed/JE9bncvlc8c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     - [https://youtu.be/u-BD28cGH98](https://youtu.be/u-BD28cGH98)
-    - <iframe width="560" height="315" src="https://www.youtube.com/embed/u-BD28cGH98" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 - CakePHP
 - Amazon SNS と Amazon SQS を用いた非同期化アーキテクチャの設計と実装
 - Amazon OpenSearch Service を用いて顧客検索システムのパフォーマンスを改善
