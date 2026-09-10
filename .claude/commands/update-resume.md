@@ -10,7 +10,7 @@ You are tasked with updating the professional resume document (docs/README.md) w
 
 The user will provide repository paths as arguments. For example:
 ```
-/update-resume ../xuan ../xuan-mcp-servers
+/update-resume ../repo-a ../repo-b
 ```
 
 If no arguments are provided, ask the user which repositories to collect from.
