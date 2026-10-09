@@ -10,6 +10,7 @@
 |    Zenn     |         [Zenn](https://zenn.dev/kimuchan)          |
 |    Qiita    |        [Qiita](https://qiita.com/kimuchan)         |
 | SpeakerDeck | [SpeakerDeck](https://speakerdeck.com/kimuchanman) |
+| しずかなインターネット | [しずかなインターネット](https://sizu.me/kimuchan) |
 
 ---
 
