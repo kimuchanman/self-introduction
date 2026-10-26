@@ -202,7 +202,7 @@
   - 監視: Datadog
   - AI: Claude Code（Skills）, GitHub Copilot（Code Review）, MCP
   - Linting: oxlint（ESLint からの段階的移行）
-  - 新規プロダクト: Kotlin / Spring Boot, jOOQ, OpenAPI, Terraform, Amazon ECS（ecspresso）, Aurora
+  - 新規プロダクト: Kotlin / Spring Boot / jOOQ / OpenAPI / Terraform / Amazon ECS（ecspresso）/ Aurora
 
 #### 2024/04 〜 2024/09
 
