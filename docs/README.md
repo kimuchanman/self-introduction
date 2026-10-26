@@ -110,10 +110,11 @@
 - GitHub Actions
 - Auth0
 - LaunchDarkly
-- Terraform
+- Terraform / ecspresso
 - LocalStack
 - Datadog
 - MySQL / PostgreSQL / DynamoDB / Redis / OpenSearch / Neon
+- jOOQ / OpenAPI
 - AWS は Solution Architect Associate(SAA) を取得しています。基本的なサービスはだいたい業務や個人で触っています。レアなスキルですと、 AWS OpenSearch Service の VPC 内とパブリックドメイン両方のインフラ環境の構築とドキュメント/インデックス構築の経験があります
 - Claude Code（Skills 開発・MCP サーバー開発・ハーネスの開発/運用）/ Codex / GitHub Copilot
 - Miro / Jira / Notion
@@ -122,11 +123,11 @@
 
 ## 職務経歴概略
 
-### 株式会社エス・エム・エス（2022/09〜現在）
+### 株式会社エス・エム・エス（2022/09〜2026/10）
 
 プロダクト開発部 介護経営支援 開発グループ にて、[カイポケリニューアル](https://careers.bm-sms.co.jp/engineer/kaipoke-renewal)に従事。
 
-#### 2024/10〜現在
+#### 2024/10〜2026/10
 
 ##### 開発推進チーム
 
@@ -141,6 +142,7 @@
     - これについて書いた blog: [VRT内製化についてのブログ](https://tech.bm-sms.co.jp/entry/2025/05/13/110000)
   - フロントエンドアーキテクチャの大規模移行
     - Next.js Pages Router から Vite + TanStack Router への段階的移行を設計・推進（複数アプリで実施）
+    - メインアプリの移行を完了し、あわせて Storybook を Vite ベースの構成へ移行
     - navigation パッケージを自社開発し、複数ミニアプリ間の型安全なルーティング基盤を構築
     - Next.js 固有の API（next/router, next/image 等）への直接依存を lint ルールで禁止し、フレームワーク非依存の抽象化レイヤーを設計
     - TanStack Router 用のルート自動生成・アダプター拡張を設計・実装し、移行コストを最小化
@@ -176,6 +178,7 @@
     - Model Context Protocol（MCP）サーバーの開発・運用
     - AI コーディングエージェントのハーネスの開発・運用
     - GitHub Copilot Code Review 用ガイドラインの整備と自動レビュー運用の導入
+    - ADR の可読性レビューを Copilot Code Review 上でレビュー用スキルを実行する構成に移し、レビュー担当者の固定割り当てを廃止
     - AI コーディングルールの体系的な管理基盤の構築（文脈依存ルールの整備）
   - テスト・品質基盤の改善
     - フルテストと差分テストの分離による開発フィードバックループの高速化
@@ -185,6 +188,10 @@
     - ドメインモデル設計を ADR として実装に先行して整備（適用条件モデルや一括作成の設計など複数本を執筆し、レビューを経て実装と整合）
     - AI コーディングエージェント前提の開発基盤を立ち上げ初期から整備（ドメイン知識・トラブルシューティングの文書化、スキル群の移植）
     - バックエンドのドメインサービス切り出しや、共有環境を壊さない検証用データ投入スクリプトの整備
+    - 研修目標の追加や入職日の任意項目化など、業務要件の変更をバックエンド・API 定義・フロントエンドまで一貫して実装
+    - development 環境への自動デプロイパイプライン（GitHub Actions + ecspresso による ECS デプロイと Slack 通知）を ADR で方針を決めてから構築
+    - Terraform でインフラのセキュリティ設定を強化（ロードバランサーの通信先の絞り込み、DB の IAM 認証、ログ・シークレットの鍵管理による暗号化、S3 のバージョニングとアクセスログ）
+    - クラウド実行のコーディングエージェント（Claude Code on the Web）向けの環境セットアップを整備し、ライブラリ更新やトラブルシュート記録の棚卸しを定期実行するエージェント用プロンプトを作成
 
 以下がおもに利用した技術スタックです。
   - VRT: Playwright + reg-cli, Storybook 10
@@ -195,6 +202,7 @@
   - 監視: Datadog
   - AI: Claude Code（Skills）, GitHub Copilot（Code Review）, MCP
   - Linting: oxlint（ESLint からの段階的移行）
+  - 新規プロダクト: Kotlin / Spring Boot, jOOQ, OpenAPI, Terraform, Amazon ECS（ecspresso）, Aurora
 
 #### 2024/04 〜 2024/09
 
