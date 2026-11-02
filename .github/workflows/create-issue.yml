@@ -9,7 +9,7 @@ jobs:
     name: create issue
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-      - uses: JasonEtco/create-an-issue@v2
+      - uses: actions/checkout@v7.0.1
+      - uses: JasonEtco/create-an-issue@v2.9.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

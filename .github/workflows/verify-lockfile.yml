@@ -1,0 +1,31 @@
+# .github/workflows/actions.lock がワークフローの uses: と一致しているか、
+# ロックしたコミットが上流で検証できるかを確認する。
+# 生成元: https://github.com/github/gh-actions-lock/blob/main/.github/workflows/verify-lockfile.yml
+
+name: verify lockfile
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/**
+  push:
+    branches:
+      - master
+    paths:
+      - .github/workflows/**
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - run: gh extension install github/gh-actions-lock --pin v0.4.0
+      - run: gh actions-lock --verify
